@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "JAReaderViewController.h"
 
 @interface ViewController ()
 
@@ -16,13 +17,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
+- (IBAction)readAction:(UIButton *)sender {
+    JAReaderViewController *readerVC = [[JAReaderViewController alloc] init];
+    [self presentViewController:readerVC animated:true completion:NULL];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 

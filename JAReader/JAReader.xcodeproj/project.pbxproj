@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		96816A871EF423D400E1F38D /* JAReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96816A861EF423D400E1F38D /* JAReaderViewController.m */; };
 		96F4258C1EF2CC00005610C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F4258B1EF2CC00005610C3 /* main.m */; };
 		96F4258F1EF2CC00005610C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F4258E1EF2CC00005610C3 /* AppDelegate.m */; };
 		96F425921EF2CC00005610C3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F425911EF2CC00005610C3 /* ViewController.m */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		96816A851EF423D400E1F38D /* JAReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAReaderViewController.h; sourceTree = "<group>"; };
+		96816A861EF423D400E1F38D /* JAReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAReaderViewController.m; sourceTree = "<group>"; };
 		96F425871EF2CC00005610C3 /* JAReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JAReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96F4258B1EF2CC00005610C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		96F4258D1EF2CC00005610C3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -39,6 +42,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		96816A841EF423C200E1F38D /* Reader */ = {
+			isa = PBXGroup;
+			children = (
+				96816A851EF423D400E1F38D /* JAReaderViewController.h */,
+				96816A861EF423D400E1F38D /* JAReaderViewController.m */,
+			);
+			path = Reader;
+			sourceTree = "<group>";
+		};
 		96F4257E1EF2CC00005610C3 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +70,7 @@
 		96F425891EF2CC00005610C3 /* JAReader */ = {
 			isa = PBXGroup;
 			children = (
+				96816A841EF423C200E1F38D /* Reader */,
 				96F4258D1EF2CC00005610C3 /* AppDelegate.h */,
 				96F4258E1EF2CC00005610C3 /* AppDelegate.m */,
 				96F425901EF2CC00005610C3 /* ViewController.h */,
@@ -151,6 +164,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96816A871EF423D400E1F38D /* JAReaderViewController.m in Sources */,
 				96F425921EF2CC00005610C3 /* ViewController.m in Sources */,
 				96F4258F1EF2CC00005610C3 /* AppDelegate.m in Sources */,
 				96F4258C1EF2CC00005610C3 /* main.m in Sources */,
@@ -275,6 +289,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZEY359R7A4;
 				INFOPLIST_FILE = JAReader/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.coder.JAReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -287,6 +302,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZEY359R7A4;
 				INFOPLIST_FILE = JAReader/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.coder.JAReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -312,6 +328,7 @@
 				96F425A01EF2CC00005610C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
