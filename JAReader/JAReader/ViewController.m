@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "JAReaderViewController.h"
+#import "JAReaderPageViewController.h"
 
 @interface ViewController ()
 
@@ -20,7 +20,7 @@
 }
 
 - (IBAction)readAction:(UIButton *)sender {
-    JAReaderViewController *readerVC = [[JAReaderViewController alloc] init];
+    JAReaderPageViewController *readerVC = [[JAReaderPageViewController alloc] init];
     [self presentViewController:readerVC animated:true completion:NULL];
 }
 
