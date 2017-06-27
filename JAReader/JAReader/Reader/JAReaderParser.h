@@ -18,4 +18,6 @@
                      config:(JAReaderConfig *)parser
                       bouds:(CGRect)bounds;
 
++ (NSDictionary *)parserAttribute:(JAReaderConfig *)config;
+
 @end

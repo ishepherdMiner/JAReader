@@ -22,9 +22,11 @@ typedef NS_ENUM(NSUInteger,JAReaderThemeType){
 @property (nonatomic) CGFloat fontSize;
 @property (nonatomic) CGFloat lineSpace;
 @property (nonatomic,strong) UIColor *fontColor;
+@property (nonatomic,strong) UIColor *themeColor;
+
 /// 主题
 @property (nonatomic,assign) JAReaderThemeType theme;
-@property (nonatomic,strong) UIColor *themeColor;
+
 
 + (instancetype)sharedReaderConfig;
 

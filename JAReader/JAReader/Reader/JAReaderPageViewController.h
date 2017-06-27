@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+/*
+ * 单章分页
+ * 网络
+ * 阅读记录
+ * 
+ */
+
 /// 分页视图控制器
 @interface JAReaderPageViewController : UIViewController
 
