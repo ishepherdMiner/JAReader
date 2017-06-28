@@ -38,6 +38,7 @@
 		96C380511F03289700AB0820 /* JANetworkTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C3804B1F03289700AB0820 /* JANetworkTask.m */; };
 		96C380521F03289700AB0820 /* JANetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C3804D1F03289700AB0820 /* JANetworkManager.m */; };
 		96C380551F03294100AB0820 /* MSNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C380541F03294100AB0820 /* MSNetworkManager.m */; };
+		96C380791F04757900AB0820 /* MSRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C380781F04757900AB0820 /* MSRecordModel.m */; };
 		96F2A24D1EFD67E800C42B63 /* JAReaderConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F2A2441EFD67E800C42B63 /* JAReaderConfig.m */; };
 		96F2A24E1EFD67E800C42B63 /* JAReaderPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F2A2461EFD67E800C42B63 /* JAReaderPageView.m */; };
 		96F2A24F1EFD67E800C42B63 /* JAReaderPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F2A2481EFD67E800C42B63 /* JAReaderPageViewController.m */; };
@@ -116,6 +117,8 @@
 		96C3804D1F03289700AB0820 /* JANetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANetworkManager.m; sourceTree = "<group>"; };
 		96C380531F03294100AB0820 /* MSNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSNetworkManager.h; sourceTree = "<group>"; };
 		96C380541F03294100AB0820 /* MSNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSNetworkManager.m; sourceTree = "<group>"; };
+		96C380771F04757900AB0820 /* MSRecordModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSRecordModel.h; sourceTree = "<group>"; };
+		96C380781F04757900AB0820 /* MSRecordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSRecordModel.m; sourceTree = "<group>"; };
 		96F2A2431EFD67E800C42B63 /* JAReaderConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAReaderConfig.h; sourceTree = "<group>"; };
 		96F2A2441EFD67E800C42B63 /* JAReaderConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAReaderConfig.m; sourceTree = "<group>"; };
 		96F2A2451EFD67E800C42B63 /* JAReaderPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAReaderPageView.h; sourceTree = "<group>"; };
@@ -179,6 +182,8 @@
 				96C37FF91F031D2F00AB0820 /* MSCharterModel.m */,
 				96C37FFA1F031D2F00AB0820 /* MSUserModel.h */,
 				96C37FFB1F031D2F00AB0820 /* MSUserModel.m */,
+				96C380771F04757900AB0820 /* MSRecordModel.h */,
+				96C380781F04757900AB0820 /* MSRecordModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -481,6 +486,7 @@
 				96C3803F1F0325AD00AB0820 /* UITableView+JACoder.m in Sources */,
 				96C37FFC1F031D2F00AB0820 /* MSBookModel.m in Sources */,
 				96C3803B1F0325AD00AB0820 /* UIImage+JACoder.m in Sources */,
+				96C380791F04757900AB0820 /* MSRecordModel.m in Sources */,
 				96C3803A1F0325AD00AB0820 /* UIDevice+JACoder.m in Sources */,
 				96C3803C1F0325AD00AB0820 /* UINavigationBar+JACoder.m in Sources */,
 				96C380301F0325AD00AB0820 /* NSDate+JACoder.m in Sources */,

@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class MSBookModel;
+@class MSBookModel,MSRecordModel;
 
 /// 个人信息
 @interface MSProfileModel : JAModel 
@@ -37,7 +37,12 @@ typedef NS_ENUM(NSUInteger,MSLoginState) {
 /// 我的信息
 @property (nonatomic,strong) MSProfileModel *profile;
 
-@property (nonatomic, copy) NSString *test;
+/// 我的阅读记录
+/// key: bookid
+/// value:
+///     charterid: 当前阅读到该书的第几章
+///     page:当前阅读到该章节的第几页
+@property (nonatomic,strong,readonly) NSMutableDictionary *records;
 
 /// 我的书架
 @property (nonatomic,strong) NSArray <MSBookModel *> *bookshelf;

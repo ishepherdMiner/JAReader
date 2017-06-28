@@ -8,6 +8,11 @@
 
 #import "MSUserModel.h"
 
+@interface MSProfileModel ()
+
+@property (nonatomic,strong) NSMutableDictionary *records;
+
+@end
 @implementation MSProfileModel
 
 + (NSString *)pK {

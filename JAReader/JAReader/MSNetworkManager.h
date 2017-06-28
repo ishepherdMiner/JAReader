@@ -12,6 +12,6 @@
 
 - (void)GET:(NSString *)urlString
  parameters:(id)parameters
-    success:(void (^)(NSURLSessionDataTask *, id))success;
+    success:(void (^)(NSURLSessionDataTask *task, id response))success;
 
 @end
