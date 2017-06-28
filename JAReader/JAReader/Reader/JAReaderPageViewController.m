@@ -30,6 +30,10 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    // 请求
+    //  1.章节信息
+    //  2.当前阅读的章节的内容
+    
 }
 
 #pragma mark -

@@ -36,7 +36,7 @@
              @"charterTitle":@"title",
              @"content":@"content",
              @"bookid":@"book_id",
-             };
+   };
 }
 
 - (instancetype)init {
