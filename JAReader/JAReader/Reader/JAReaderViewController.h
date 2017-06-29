@@ -11,4 +11,7 @@
 /// 单页视图控制器
 @interface JAReaderViewController : UIViewController
 
+/// 页面内容
+@property (nonatomic,copy) NSString *content;
+
 @end
