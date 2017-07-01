@@ -26,8 +26,14 @@
 }
 
 - (NSString *)stringOfPage:(NSUInteger)index {
-    
-    return nil;
+    NSUInteger loc = [_pages[index] integerValue];
+    NSUInteger length;
+    if (index < [self.pageCount integerValue] -1) {
+        length = [_pages[index + 1] integerValue] - [_pages[index] integerValue];
+    }else {
+        length = _content.length - [_pages[index] integerValue];
+    }
+    return [_content substringWithRange:NSMakeRange(loc, [_pages[index] integerValue])] ;
 }
 
 + (NSDictionary<NSString *,id> *)modelCustomPropertyMapper {
