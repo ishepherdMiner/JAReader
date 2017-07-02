@@ -55,6 +55,27 @@
     return [ss copy];
 }
 
++ (NSString *)parseMarkup:(NSString *)markup {
+    // <([a-z][a-z0-9]*)\b[^>]*>(.*?)</\1>
+    // (.*?)(<[^>]+>|\\Z)
+    // [NSString stringWithFormat:@"[^<\\/?\\w*>]+(%@\\s)", @"p"]
+    NSError *err = nil;
+    NSRegularExpression *re = [NSRegularExpression regularExpressionWithPattern:@"(.*?)(<[^>]+>|\\Z)" options:NSRegularExpressionCaseInsensitive error:&err];
+    NSLog(@"%@",err);
+    NSArray *chunks = [re matchesInString:markup options:NSMatchingReportProgress range:NSMakeRange(0, markup.length)];
+    
+    NSMutableString *ss = [NSMutableString string];
+    
+    for (int i = 0; i < chunks.count; ++i) {
+        NSString *s = [markup substringWithRange:[chunks[i] range]];
+        
+        [ss appendString:[s componentsSeparatedByString:@"<"][0]];
+        [ss appendFormat:@"\n"];
+    }
+    
+    return [ss copy];
+}
+
 /**
  从阅读器配置对象中读取出样式属性
 
