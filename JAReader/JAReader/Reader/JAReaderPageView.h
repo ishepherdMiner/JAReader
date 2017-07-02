@@ -12,4 +12,9 @@
 /// 单页
 @interface JAReaderPageView : UIView
 
+@property (nonatomic,assign) CTFrameRef frameRef;
+@property (nonatomic,strong) NSString *content;
+
+- (void)cancelSelected;
+
 @end
