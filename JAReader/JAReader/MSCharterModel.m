@@ -33,7 +33,7 @@
     }else {
         length = _content.length - [_pages[index] integerValue];
     }
-    return [_content substringWithRange:NSMakeRange(loc, [_pages[index] integerValue])] ;
+    return [_content substringWithRange:NSMakeRange(loc, length)] ;
 }
 
 + (NSDictionary<NSString *,id> *)modelCustomPropertyMapper {

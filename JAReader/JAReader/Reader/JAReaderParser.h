@@ -20,4 +20,6 @@
 
 + (NSDictionary *)parserAttribute:(JAReaderConfig *)config;
 
++ (NSString *)parseMarkup:(NSString *)markup;
+
 @end

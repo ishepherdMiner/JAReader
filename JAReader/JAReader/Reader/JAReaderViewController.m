@@ -37,11 +37,13 @@
 
 - (JAReaderPageView *)pageView {
     if (!_pageView) {
-        _pageView = [[JAReaderPageView alloc] initWithFrame:CGRectMake(20, 40, UIScreen.w - 40, 40)];
-        JAReaderConfig *config = [JAReaderConfig sharedReaderConfig];
-        _pageView.frameRef = [JAReaderParser parserContent:_content config:config bouds:_pageView.bounds];
-        
-        _pageView.content = _content;
+        if (_content) {            
+            _pageView = [[JAReaderPageView alloc] initWithFrame:CGRectMake(20, 40, UIScreen.w - 40, 40)];
+            JAReaderConfig *config = [JAReaderConfig sharedReaderConfig];
+            _pageView.frameRef = [JAReaderParser parserContent:_content config:config bouds:_pageView.bounds];
+            
+            _pageView.content = _content;
+        }
         // _readView.delegate = self;
     }
     return _pageView;
