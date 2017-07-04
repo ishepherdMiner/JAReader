@@ -87,6 +87,7 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     dict[NSForegroundColorAttributeName] = config.fontColor;
     dict[NSFontAttributeName] = [UIFont systemFontOfSize:config.fontSize];
+    dict[NSBackgroundColorAttributeName] = [UIColor whiteColor];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineSpacing = config.lineSpace;
     paragraphStyle.alignment = NSTextAlignmentJustified;

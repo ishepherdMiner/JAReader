@@ -40,7 +40,7 @@
 		96C380551F03294100AB0820 /* MSNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C380541F03294100AB0820 /* MSNetworkManager.m */; };
 		96C380791F04757900AB0820 /* MSRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C380781F04757900AB0820 /* MSRecordModel.m */; };
 		96F2A24D1EFD67E800C42B63 /* JAReaderConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F2A2441EFD67E800C42B63 /* JAReaderConfig.m */; };
-		96F2A24E1EFD67E800C42B63 /* JAReaderPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F2A2461EFD67E800C42B63 /* JAReaderPageView.m */; };
+		96F2A24E1EFD67E800C42B63 /* JAReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F2A2461EFD67E800C42B63 /* JAReaderView.m */; };
 		96F2A24F1EFD67E800C42B63 /* JAReaderPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F2A2481EFD67E800C42B63 /* JAReaderPageViewController.m */; };
 		96F2A2501EFD67E800C42B63 /* JAReaderParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F2A24A1EFD67E800C42B63 /* JAReaderParser.m */; };
 		96F2A2511EFD67E800C42B63 /* JAReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F2A24C1EFD67E800C42B63 /* JAReaderViewController.m */; };
@@ -121,8 +121,8 @@
 		96C380781F04757900AB0820 /* MSRecordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSRecordModel.m; sourceTree = "<group>"; };
 		96F2A2431EFD67E800C42B63 /* JAReaderConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAReaderConfig.h; sourceTree = "<group>"; };
 		96F2A2441EFD67E800C42B63 /* JAReaderConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAReaderConfig.m; sourceTree = "<group>"; };
-		96F2A2451EFD67E800C42B63 /* JAReaderPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAReaderPageView.h; sourceTree = "<group>"; };
-		96F2A2461EFD67E800C42B63 /* JAReaderPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAReaderPageView.m; sourceTree = "<group>"; };
+		96F2A2451EFD67E800C42B63 /* JAReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAReaderView.h; sourceTree = "<group>"; };
+		96F2A2461EFD67E800C42B63 /* JAReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAReaderView.m; sourceTree = "<group>"; };
 		96F2A2471EFD67E800C42B63 /* JAReaderPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAReaderPageViewController.h; sourceTree = "<group>"; };
 		96F2A2481EFD67E800C42B63 /* JAReaderPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAReaderPageViewController.m; sourceTree = "<group>"; };
 		96F2A2491EFD67E800C42B63 /* JAReaderParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAReaderParser.h; sourceTree = "<group>"; };
@@ -162,8 +162,8 @@
 				96F2A24C1EFD67E800C42B63 /* JAReaderViewController.m */,
 				96F2A2431EFD67E800C42B63 /* JAReaderConfig.h */,
 				96F2A2441EFD67E800C42B63 /* JAReaderConfig.m */,
-				96F2A2451EFD67E800C42B63 /* JAReaderPageView.h */,
-				96F2A2461EFD67E800C42B63 /* JAReaderPageView.m */,
+				96F2A2451EFD67E800C42B63 /* JAReaderView.h */,
+				96F2A2461EFD67E800C42B63 /* JAReaderView.m */,
 				96F2A2491EFD67E800C42B63 /* JAReaderParser.h */,
 				96F2A24A1EFD67E800C42B63 /* JAReaderParser.m */,
 				96C380021F031DED00AB0820 /* Model */,
@@ -492,7 +492,7 @@
 				96C380301F0325AD00AB0820 /* NSDate+JACoder.m in Sources */,
 				96C380371F0325AD00AB0820 /* UIButton+JACoder.m in Sources */,
 				96C380311F0325AD00AB0820 /* NSDictionary+JACoder.m in Sources */,
-				96F2A24E1EFD67E800C42B63 /* JAReaderPageView.m in Sources */,
+				96F2A24E1EFD67E800C42B63 /* JAReaderView.m in Sources */,
 				96C380511F03289700AB0820 /* JANetworkTask.m in Sources */,
 				96F2A24F1EFD67E800C42B63 /* JAReaderPageViewController.m in Sources */,
 			);

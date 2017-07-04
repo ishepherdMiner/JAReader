@@ -1,5 +1,5 @@
 //
-//  JAReaderPageViewController.h
+//  JAReaderViewController.h
 //  MStarReader
 //
 //  Created by Jason on 23/06/2017.

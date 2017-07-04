@@ -8,7 +8,7 @@
 
 #import "JAReaderViewController.h"
 #import <YYText.h>
-#import "JAReaderPageView.h"
+#import "JAReaderView.h"
 #import "JACategory.h"
 #import "JAReaderConfig.h"
 #import "JAReaderParser.h"
@@ -16,7 +16,7 @@
 @interface JAReaderViewController ()
 
 @property (nonatomic,strong) YYLabel *textLabel;
-@property (nonatomic, strong) JAReaderPageView *pageView;
+@property (nonatomic, strong) JAReaderView *readerView;
 
 @end
 
@@ -26,27 +26,28 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self.view addSubview:self.pageView];
-    [self.view addSubview:self.textLabel];
+    [self.view addSubview:self.readerView];
+//     [self.view addSubview:self.textLabel];
 }
 
 - (void)setContent:(NSString *)content {
     _content = content;
+    /*
     _textLabel.attributedText = [[NSAttributedString alloc] initWithString:_content];
+    */
+    JAReaderConfig *config = [JAReaderConfig sharedReaderConfig];
+    _readerView.frameRef = [JAReaderParser parserContent:_content config:config bouds:_readerView.bounds];
+    _readerView.content = _content;
+    [_readerView setNeedsDisplay];
 }
 
-- (JAReaderPageView *)pageView {
-    if (!_pageView) {
-        if (_content) {            
-            _pageView = [[JAReaderPageView alloc] initWithFrame:CGRectMake(20, 40, UIScreen.w - 40, 40)];
-            JAReaderConfig *config = [JAReaderConfig sharedReaderConfig];
-            _pageView.frameRef = [JAReaderParser parserContent:_content config:config bouds:_pageView.bounds];
-            
-            _pageView.content = _content;
-        }
+- (JAReaderView *)readerView {
+    if (!_readerView) {
+        _readerView = [[JAReaderView alloc] initWithFrame:CGRectMake(20, 40, UIScreen.w - 40, UIScreen.h - 80)];
         // _readView.delegate = self;
+        _readerView.backgroundColor = [UIColor whiteColor];
     }
-    return _pageView;
+    return _readerView;
 }
 
 - (YYLabel *)textLabel {

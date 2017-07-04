@@ -10,7 +10,7 @@
 #import <YYText.h>
 
 /// 单页
-@interface JAReaderPageView : UIView
+@interface JAReaderView : UIView
 
 @property (nonatomic,assign) CTFrameRef frameRef;
 @property (nonatomic,strong) NSString *content;

@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "JAReaderViewController.h"
 #import "JAReaderPageViewController.h"
 
 @interface ViewController ()
