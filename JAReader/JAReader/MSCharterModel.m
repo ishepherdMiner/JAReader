@@ -15,8 +15,6 @@
 
 @interface MSCharterModel ()
 
-@property (nonatomic,strong) NSMutableArray *pages;
-
 @end
 
 @implementation MSCharterModel

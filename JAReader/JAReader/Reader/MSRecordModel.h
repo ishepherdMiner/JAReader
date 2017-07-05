@@ -22,4 +22,9 @@
 /// 当前阅读的在第几页 推出当前用户对这本书阅读状态
 @property (nonatomic,copy) NSString *page;
 
+/// 已读的内容长度
+@property (nonatomic, copy) NSString *length;
+
++ (instancetype)recordWithBookId:(NSNumber *)bookId;
+
 @end

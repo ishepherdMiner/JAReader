@@ -12,12 +12,16 @@
 #import "MSUserModel.h"
 #import "MSCharterModel.h"
 #import "JAReaderParser.h"
+#import "MSRecordModel.h"
 
 @interface JAReaderPageViewController () <UIPageViewControllerDataSource,UIPageViewControllerDelegate>
 
 @property (nonatomic,strong) UIPageViewController *pageViewController;
 @property (nonatomic, assign) BOOL statusBarHide;
 @property (nonatomic,strong) JAReaderViewController *readerViewController;
+
+// 阅读记录
+@property (nonatomic,strong) MSRecordModel *recordModel;
 @end
 
 @implementation JAReaderPageViewController

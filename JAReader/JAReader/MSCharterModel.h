@@ -18,10 +18,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 标题
 @property (nonatomic, copy) NSString *charterTitle;
+
 /// 页数
 @property (nonatomic, copy) NSString *pageCount;
 /// 内容
 @property (nonatomic, copy) NSString *content;
+
+@property (nonatomic,strong) NSMutableArray *pages;
 
 /**
  返回第index页的内容
