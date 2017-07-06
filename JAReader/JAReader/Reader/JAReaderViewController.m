@@ -36,7 +36,7 @@
     _textLabel.attributedText = [[NSAttributedString alloc] initWithString:_content];
     */
     JAReaderConfig *config = [JAReaderConfig sharedReaderConfig];
-    _readerView.frameRef = [JAReaderParser parserContent:_content config:config bouds:_readerView.bounds];
+    self.readerView.frameRef = [JAReaderParser parserContent:_content config:config bouds:_readerView.bounds];
     _readerView.content = _content;
     [_readerView setNeedsDisplay];
 }

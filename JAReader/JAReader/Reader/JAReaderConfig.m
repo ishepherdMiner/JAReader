@@ -24,7 +24,7 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.fontSize = 20;
+        self.fontSize = 16;
         self.lineSpace = 5;
         self.theme = JAReaderThemeTypeNormal;
         self.themeColor = [UIColor whiteColor];
