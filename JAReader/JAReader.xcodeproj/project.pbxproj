@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2E0BD21E36401081FAC84FC7 /* libPods-JAReader.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80F77701BA4143C499EE6FD6 /* libPods-JAReader.a */; };
+		966F32DB1F111800001D7E4E /* JADBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 966F32DA1F111800001D7E4E /* JADBManager.m */; };
 		96C37FFC1F031D2F00AB0820 /* MSBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C37FF71F031D2F00AB0820 /* MSBookModel.m */; };
 		96C37FFD1F031D2F00AB0820 /* MSCharterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C37FF91F031D2F00AB0820 /* MSCharterModel.m */; };
 		96C37FFE1F031D2F00AB0820 /* MSUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C37FFB1F031D2F00AB0820 /* MSUserModel.m */; };
@@ -56,6 +57,8 @@
 		599BEE1B754708FB1D58BF36 /* Pods-JAReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JAReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-JAReader/Pods-JAReader.release.xcconfig"; sourceTree = "<group>"; };
 		77544448C247719603D5357B /* Pods-JAReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JAReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JAReader/Pods-JAReader.debug.xcconfig"; sourceTree = "<group>"; };
 		80F77701BA4143C499EE6FD6 /* libPods-JAReader.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JAReader.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		966F32D91F111800001D7E4E /* JADBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JADBManager.h; sourceTree = "<group>"; };
+		966F32DA1F111800001D7E4E /* JADBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JADBManager.m; sourceTree = "<group>"; };
 		96C37FF61F031D2F00AB0820 /* MSBookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSBookModel.h; path = ../MSBookModel.h; sourceTree = "<group>"; };
 		96C37FF71F031D2F00AB0820 /* MSBookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSBookModel.m; path = ../MSBookModel.m; sourceTree = "<group>"; };
 		96C37FF81F031D2F00AB0820 /* MSCharterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSCharterModel.h; path = ../MSCharterModel.h; sourceTree = "<group>"; };
@@ -153,6 +156,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		966F32D81F111800001D7E4E /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				966F32D91F111800001D7E4E /* JADBManager.h */,
+				966F32DA1F111800001D7E4E /* JADBManager.m */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 		96816A841EF423C200E1F38D /* Reader */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,6 +304,7 @@
 			children = (
 				96C380531F03294100AB0820 /* MSNetworkManager.h */,
 				96C380541F03294100AB0820 /* MSNetworkManager.m */,
+				966F32D81F111800001D7E4E /* Database */,
 				96C380411F03289700AB0820 /* Network */,
 				96C380031F0325AD00AB0820 /* Category */,
 				96816A841EF423C200E1F38D /* Reader */,
@@ -476,6 +489,7 @@
 				96C3802D1F0325AD00AB0820 /* NSArray+JACoder.m in Sources */,
 				96C3802E1F0325AD00AB0820 /* NSBundle+JACoder.m in Sources */,
 				96C380361F0325AD00AB0820 /* NSURL+JACoder.m in Sources */,
+				966F32DB1F111800001D7E4E /* JADBManager.m in Sources */,
 				96C380331F0325AD00AB0820 /* NSNumber+JACoder.m in Sources */,
 				96C37FFD1F031D2F00AB0820 /* MSCharterModel.m in Sources */,
 				96F2A24D1EFD67E800C42B63 /* JAReaderConfig.m in Sources */,
