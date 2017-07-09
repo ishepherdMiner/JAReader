@@ -16,11 +16,12 @@
 @end
 
 @implementation JANetworkMBHud
+
 - (void)showInView:(UIView *)view {
     self.hud = [MBProgressHUD showHUDAddedTo:view animated:true];
 }
 
-- (void)dismiss {
+- (void)hide {
     [self.hud hideAnimated:true afterDelay:1.2];
 }
 @end

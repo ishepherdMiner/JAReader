@@ -7,19 +7,25 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JANetworkTask.h"
-#import "JANetworkHud.h"
+#import "JANetworkProtocol.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSInteger,JANetworkManagerStyle) {
     JANetworkMgStyleDefault  // 默认是 AFN + MBProgress
 };
 
-@interface JANetworkManager : NSObject <JANetworkDelegate,JANetworkHudDelegate>
+@interface JANetworkManager : NSObject <JANetworkProtocol,JANetworkHudDelegate>
 
-@property (nonatomic,strong,readonly) id<JANetworkDelegate> task;
+@property (nonatomic,strong,readonly) id<JANetworkProtocol> task;
 @property (nonatomic,strong,readonly) id<JANetworkHudDelegate> hub;
+
+@property (nonatomic, copy) void (^commonSuccess)(NSURLSessionDataTask *task, id responseObject);
+@property (nonatomic, copy) void (^commonFailure)(NSURLSessionDataTask *task, NSError *error);
 
 + (instancetype)manager;
 + (instancetype)managerWithStyle:(JANetworkManagerStyle)style;
 
 @end
+
+NS_ASSUME_NONNULL_END

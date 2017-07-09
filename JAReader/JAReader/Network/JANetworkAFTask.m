@@ -9,7 +9,7 @@
 #import "JANetworkAFTask.h"
 #import <AFNetworking.h>
 
-@interface JANetworkAFTask ()  
+@interface JANetworkAFTask ()
 
 @property (nonatomic,strong) AFHTTPSessionManager *ssManager;
 
@@ -29,7 +29,17 @@
     
     [self.ssManager GET:urlString parameters:parameters progress:^(NSProgress *progress){
         
+        
     }   success:success failure:failure];
+}
+
+- (void)GET:(NSString *)URLString
+ parameters:(id)parameters
+   progress:(void (^)(NSProgress *progress))downloadProgress
+    success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+    failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure{
+    
+    [self.ssManager GET:URLString parameters:parameters progress:downloadProgress success:success failure:failure];
 }
 
 - (void)POST:(NSString *)urlString parameters:(id)parameters success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {

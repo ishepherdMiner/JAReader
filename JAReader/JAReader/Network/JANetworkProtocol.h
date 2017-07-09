@@ -8,14 +8,25 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
 
-@protocol JANetworkDelegate <NSObject>
+@protocol JANetworkProtocol <NSObject>
 
 @required
 
 // 查
 - (void)GET:(NSString *)urlString
  parameters:(id)parameters
+    success:(void (^)(NSURLSessionDataTask *task, id responseObject))success;
+
+- (void)GET:(NSString *)urlString
+ parameters:(id)parameters
+    success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+    failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
+- (void)GET:(NSString *)URLString
+ parameters:(id)parameters
+   progress:(void (^)(NSProgress *progress))downloadProgress
     success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
     failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
@@ -23,9 +34,11 @@
 - (void)POST:(NSString *)urlString
   parameters:(id)parameters
      success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
-     failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+     failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
+    isUpload:(BOOL)isUpload;
 
 @optional
+
 // 改
 - (void)PUT:(NSString *)urlString
  parameters:(id)parameters
@@ -38,13 +51,18 @@
        success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
        failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
-// 图片缓存
-- (void)setImageWithURL:(NSURL *)url
-       placeholderImage:(UIImage *)placeholderImage;
+@end
+
+@protocol JANetworkHudDelegate <NSObject>
+
+@required
+
+/// 展示
+- (void)showInView:(UIView *)view;
+
+/// 消失
+- (void)hide;
 
 @end
 
-/// 网络请求任务接口
-@interface JANetworkTask : NSObject 
-
-@end
+NS_ASSUME_NONNULL_END
