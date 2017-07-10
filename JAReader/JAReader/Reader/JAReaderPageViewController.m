@@ -14,7 +14,7 @@
 #import "JAReaderParser.h"
 #import "MSRecordModel.h"
 
-@interface JAReaderPageViewController () <UIPageViewControllerDataSource,UIPageViewControllerDelegate>
+@interface JAReaderPageViewController () <UIPageViewControllerDataSource,UIPageViewControllerDelegate,UIGestureRecognizerDelegate>
 
 @property (nonatomic,strong) UIPageViewController *pageViewController;
 @property (nonatomic, assign) BOOL statusBarHide;
@@ -36,6 +36,12 @@
     [self addChildViewController:self.pageViewController];
     _readerViewController = [[JAReaderViewController alloc] init];
     [self.pageViewController setViewControllers:@[_readerViewController] direction:UIPageViewControllerNavigationDirectionForward animated:true completion:NULL];
+    
+    [self.view addGestureRecognizer:({
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showToolMenu)];
+        tap.delegate = self;
+        tap;
+    })];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
