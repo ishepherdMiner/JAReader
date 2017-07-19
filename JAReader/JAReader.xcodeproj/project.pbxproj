@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2E0BD21E36401081FAC84FC7 /* libPods-JAReader.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80F77701BA4143C499EE6FD6 /* libPods-JAReader.a */; };
-		966F32DB1F111800001D7E4E /* JADBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 966F32DA1F111800001D7E4E /* JADBManager.m */; };
+		962D44C31F1FA22700A80F1A /* JADBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 962D44C01F1FA22700A80F1A /* JADBManager.m */; };
+		962D44C41F1FA22700A80F1A /* JADBTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 962D44C21F1FA22700A80F1A /* JADBTable.m */; };
 		96C37FFC1F031D2F00AB0820 /* MSBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C37FF71F031D2F00AB0820 /* MSBookModel.m */; };
 		96C37FFD1F031D2F00AB0820 /* MSCharterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C37FF91F031D2F00AB0820 /* MSCharterModel.m */; };
 		96C37FFE1F031D2F00AB0820 /* MSUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C37FFB1F031D2F00AB0820 /* MSUserModel.m */; };
@@ -57,8 +58,10 @@
 		599BEE1B754708FB1D58BF36 /* Pods-JAReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JAReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-JAReader/Pods-JAReader.release.xcconfig"; sourceTree = "<group>"; };
 		77544448C247719603D5357B /* Pods-JAReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JAReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JAReader/Pods-JAReader.debug.xcconfig"; sourceTree = "<group>"; };
 		80F77701BA4143C499EE6FD6 /* libPods-JAReader.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JAReader.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		966F32D91F111800001D7E4E /* JADBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JADBManager.h; sourceTree = "<group>"; };
-		966F32DA1F111800001D7E4E /* JADBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JADBManager.m; sourceTree = "<group>"; };
+		962D44BF1F1FA22700A80F1A /* JADBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JADBManager.h; sourceTree = "<group>"; };
+		962D44C01F1FA22700A80F1A /* JADBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JADBManager.m; sourceTree = "<group>"; };
+		962D44C11F1FA22700A80F1A /* JADBTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JADBTable.h; sourceTree = "<group>"; };
+		962D44C21F1FA22700A80F1A /* JADBTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JADBTable.m; sourceTree = "<group>"; };
 		96C37FF61F031D2F00AB0820 /* MSBookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSBookModel.h; path = ../MSBookModel.h; sourceTree = "<group>"; };
 		96C37FF71F031D2F00AB0820 /* MSBookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSBookModel.m; path = ../MSBookModel.m; sourceTree = "<group>"; };
 		96C37FF81F031D2F00AB0820 /* MSCharterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSCharterModel.h; path = ../MSCharterModel.h; sourceTree = "<group>"; };
@@ -160,8 +163,10 @@
 		966F32D81F111800001D7E4E /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				966F32D91F111800001D7E4E /* JADBManager.h */,
-				966F32DA1F111800001D7E4E /* JADBManager.m */,
+				962D44BF1F1FA22700A80F1A /* JADBManager.h */,
+				962D44C01F1FA22700A80F1A /* JADBManager.m */,
+				962D44C11F1FA22700A80F1A /* JADBTable.h */,
+				962D44C21F1FA22700A80F1A /* JADBTable.m */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -475,7 +480,7 @@
 				96C3802E1F0325AD00AB0820 /* NSBundle+JACoder.m in Sources */,
 				96C380361F0325AD00AB0820 /* NSURL+JACoder.m in Sources */,
 				96E605711F127AFA008F98FD /* JANetworkMBHud.m in Sources */,
-				966F32DB1F111800001D7E4E /* JADBManager.m in Sources */,
+				962D44C31F1FA22700A80F1A /* JADBManager.m in Sources */,
 				96C380331F0325AD00AB0820 /* NSNumber+JACoder.m in Sources */,
 				96C37FFD1F031D2F00AB0820 /* MSCharterModel.m in Sources */,
 				96F2A24D1EFD67E800C42B63 /* JAReaderConfig.m in Sources */,
@@ -487,6 +492,7 @@
 				96C3803B1F0325AD00AB0820 /* UIImage+JACoder.m in Sources */,
 				96C380791F04757900AB0820 /* MSRecordModel.m in Sources */,
 				96C3803A1F0325AD00AB0820 /* UIDevice+JACoder.m in Sources */,
+				962D44C41F1FA22700A80F1A /* JADBTable.m in Sources */,
 				96C3803C1F0325AD00AB0820 /* UINavigationBar+JACoder.m in Sources */,
 				96C380301F0325AD00AB0820 /* NSDate+JACoder.m in Sources */,
 				96C380371F0325AD00AB0820 /* UIButton+JACoder.m in Sources */,

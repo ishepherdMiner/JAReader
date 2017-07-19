@@ -9,30 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <sqlite3.h>
 #import "JAModel.h"
+#import "JADBTable.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-@interface JADBTable : JAModel
-
-- (void)insertWithModel:(JAModel *)model;
-- (void)updateWithModel:(JAModel *)model;
-
-
-- (JAModel *)selectWithValue:(id)value;
-/// 多个的情况下,会取最后一个 [暂时]
-- (JAModel *)selectWithValue:(id)value
-                       field:(NSString *)field
-                relationship:(NSString *)rs;
-- (NSArray <JAModel *> *)selectAll;
-
-- (void)deleteWithValue:(id)value;
-- (void)deleteWithValue:(id)value
-                  field:(NSString *)field
-           relationship:(NSString *)rs;
-
-- (void)deleteAll;
-
-@end
 
 /// 测试
 /*
@@ -109,7 +88,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 ///
 
+
 @interface JADBManager : NSObject
+
+@property (nonatomic,strong,readonly) FMDatabaseQueue *dbQueue;
+@property (nonatomic,strong,readonly) NSMutableDictionary <NSString *,JADBTable *> *tables;
+@property (nonatomic, assign) BOOL enableLog;
 
 + (instancetype)sharedDBManager;
 
@@ -138,6 +122,7 @@ NS_ASSUME_NONNULL_BEGIN
  @return 数据库对象
  */
 - (instancetype)openWithDbPath:(nullable NSString *)dbPath;
+
 /// 关闭数据库
 - (void)close;
 
@@ -145,14 +130,11 @@ NS_ASSUME_NONNULL_BEGIN
  创建/选择数据表
  
  @param tableName 表名
- @param templates 绑定的模型
+ @param modelClass 绑定的模型
  @return 表对象
  */
 - (JADBTable *)createTableWithName:(NSString *)tableName
-                         templates:(NSArray <Class> *)templates;
-
-
-- (JADBTable *)selectTableWithName:(NSString *)tableName;
+                        modelClass:(Class <JAModelDBDelegate>)modelClass;
 
 /// 所有的表名
 - (NSArray *)allTables;
