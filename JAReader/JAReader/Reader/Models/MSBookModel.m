@@ -14,4 +14,16 @@
     return @"bookid";
 }
 
++ (NSDictionary<NSString *,id> *)modelCustomPropertyMapper {
+    return @{@"bookid":@"id"};
+}
+
+- (NSString *)viewControllerTitle {
+    return self.bookname;
+}
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
+    
+}
+
 @end

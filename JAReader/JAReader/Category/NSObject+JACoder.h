@@ -70,4 +70,5 @@
  */
 - (void)ja_cleanCacheList;
 
+- (NSString *)toS;
 @end

@@ -130,7 +130,7 @@ NS_ASSUME_NONNULL_BEGIN
  创建/选择数据表
  
  @param tableName 表名
- @param modelClass 绑定的模型
+ @param modelClass 绑定的模型 [默认与表名相同]
  @return 表对象
  */
 - (JADBTable *)createTableWithName:(NSString *)tableName

@@ -8,10 +8,10 @@
 
 #import "MSCharterModel.h"
 #import <UIKit/UIKit.h>
-#import "JACategory.h"
-#import <CoreText/CoreText.h>
 #import "JAReaderParser.h"
 #import "JAReaderConfig.h"
+#import <CoreText/CoreText.h>
+#import "JACategory.h"
 
 @interface MSCharterModel ()
 
@@ -23,24 +23,17 @@
     return @"charterid";
 }
 
-- (NSString *)stringOfPage:(NSUInteger)index {
-    NSUInteger loc = [_pages[index] integerValue];
-    NSUInteger length;
-    if (index < [self.pageCount integerValue] -1) {
-        length = [_pages[index + 1] integerValue] - [_pages[index] integerValue];
-    }else {
-        length = _content.length - [_pages[index] integerValue];
-    }
-    return [_content substringWithRange:NSMakeRange(loc, length)] ;
++ (NSArray *)blackList {
+    return @[@"pages",@"superclass",@"debugDescription",@"hash",@"description"];
 }
 
 + (NSDictionary<NSString *,id> *)modelCustomPropertyMapper {
     return @{
-             @"charterid":@"num",
+             @"charterid":@"id",
              @"charterTitle":@"title",
              @"content":@"content",
              @"bookid":@"book_id",
-   };
+           };
 }
 
 - (instancetype)init {
@@ -55,9 +48,21 @@
     [self paginateWithBounds:CGRectMake(10, 10, UIScreen.w - 20, UIScreen.h - 20)];
 }
 
+/// 根据页数获得该页内容
+- (NSString *)stringOfPage:(NSUInteger)index {
+    NSUInteger loc = [_pages[index] integerValue];
+    NSUInteger length;
+    if (index < [self.pageCount integerValue] -1) {
+        length = [_pages[index + 1] integerValue] - [_pages[index] integerValue];
+    }else {
+        length = _content.length - [_pages[index] integerValue];
+    }
+    return [_content substringWithRange:NSMakeRange(loc, length)] ;
+}
+
 /**
  分页
- 
+
  @param bounds 内容区域
  */
 - (void)paginateWithBounds:(CGRect)bounds {
@@ -78,11 +83,8 @@
     
     while (hasMorePages) {
         if (preventDeadLoopSign == currentOffset) {
-            
             ++samePlaceRepeatCount;
-            
         } else {
-            
             samePlaceRepeatCount = 0;
         }
         
@@ -92,9 +94,7 @@
                 [_pages addObject:@(currentOffset)];
             }
             else {
-                
                 NSUInteger lastOffset = [[_pages lastObject] integerValue];
-                
                 if (lastOffset != currentOffset) {
                     [_pages addObject:@(currentOffset)];
                 }
@@ -109,10 +109,8 @@
         
         // 不等于内容的长度,表明还有内容
         if ((range.location + range.length) != attrStr.length) {
-            
             currentOffset += range.length;
             currentInnerOffset += range.length;
-            
         } else {
             // 已经分完，提示跳出循环
             hasMorePages = NO;
@@ -123,5 +121,9 @@
     CGPathRelease(path);
     CFRelease(frameSetter);
     _pageCount = @(_pages.count).stringValue;
+}
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
+    
 }
 @end

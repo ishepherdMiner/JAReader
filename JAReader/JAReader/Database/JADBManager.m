@@ -9,7 +9,6 @@
 #import "JADBManager.h"
 #import "JAModel.h"
 #import "JACategory.h"
-#import "JAConfigure.h"
 #import <objc/message.h>
 #import <FMDB.h>
 #import "JADBTable.h"
@@ -86,6 +85,17 @@
     
     self.curTableName = table.tableName;
     return table;
+}
+
+- (JADBTable *)selectTableWithName:(NSString *)tableName {
+    JADBTable *table = [self.tables objectForKey:tableName];
+    if (table) {
+        self.curTableName = table.tableName;
+        return table;
+    }else {
+        NSLog(@"[JA]:没有 %@ 表",tableName);;
+        return nil;
+    }
 }
 
 - (void)deleteTable {

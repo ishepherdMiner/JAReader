@@ -189,4 +189,7 @@ const void* propertyAndEncodeTypeKey = "com.coder.lldb-excelusive.propertyAndEnc
     objc_removeAssociatedObjects([self class]);
 }
 
+- (NSString *)toS {
+    return NSStringFromClass(self.class);
+}
 @end

@@ -6,15 +6,14 @@
 //  Copyright © 2017 Jason. All rights reserved.
 //
 
+#import <YYModel.h>
 #import "JAModel.h"
-
-NS_ASSUME_NONNULL_BEGIN
 
 @class MSCharterModel;
 
-@interface MSBookModel : JAModel
-/// [主键]
-@property (nonatomic, strong) NSNumber *bookid;
+@interface MSBookModel : JAModel <YYModel>
+
+@property (nonatomic, copy) NSString *bookid;
 
 /// 书名
 @property (nonatomic, copy) NSString *bookname;
@@ -46,10 +45,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *created_at;
 /// 更新时间
 @property (nonatomic, copy) NSString *last_update;
-
 /// 章节信息
 @property (nonatomic, strong) NSArray<MSCharterModel *> *charters;
 
-@end
+/// 首页接口: 最新章节名
+@property (nonatomic, copy) NSString *title;
+/// 最新章节
+@property (nonatomic, copy) NSString *num;
 
-NS_ASSUME_NONNULL_END
+/// 小说详情页接口是这个
+/// 最新章节 -
+@property (nonatomic, strong) NSDictionary *lastChapter;
+
+/// 阅读状态 (绑定用户)
+@property (nonatomic, strong) NSNumber *rate;
+@end

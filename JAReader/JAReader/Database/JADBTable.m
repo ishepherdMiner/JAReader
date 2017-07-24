@@ -11,6 +11,7 @@
 #import <FMDB.h>
 #import "JACategory.h"
 #import "JADBManager.h"
+#import "JARelateModel.h"
 
 typedef NS_ENUM(NSUInteger,JADBTableType) {
     JADBTableTypeString,
@@ -29,6 +30,9 @@ typedef NS_ENUM(NSUInteger,JADBTableType) {
 /// 包含的从属表的映射关系: 属性名 => 表名
 @property (nonatomic,strong) NSMutableDictionary *relationship;
 
+
+@property (nonatomic,assign,getter=isResultSet) BOOL resultSet;
+
 @end
 
 @implementation JADBTable
@@ -42,27 +46,36 @@ typedef NS_ENUM(NSUInteger,JADBTableType) {
         self.dbQueue = [JADBManager sharedDBManager].dbQueue;
         self.tableName = tableName;
         self.tableClass = tableClass;        
-        [self createTableWithModel:tableClass name:tableName];
+        [self createTableWithClass:tableClass name:tableName];
     }
     return self;
 }
 
-- (void)createTableWithModel:(JAModel *)model name:(NSString *)tableName{
+- (void)createTableWithClass:(Class)tableClass {
+    [self createTableWithClass:tableClass name:NSStringFromClass(tableClass)];
+}
+
+- (void)createTableWithClass:(Class)tableClass name:(NSString *)tableName{
     NSMutableString *sql = [NSMutableString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (",tableName];
-    NSDictionary *fieldsTypePair = [[[[model class] alloc] init] ja_propertyAndEncodeTypeList:false];
-    fieldsTypePair = [self filterWithDictionay:fieldsTypePair modelClass:[model class]];
+    NSDictionary *fieldsTypePair = [[[tableClass alloc] init] ja_propertyAndEncodeTypeList:false];
+    fieldsTypePair = [self filterWithDictionay:fieldsTypePair modelClass:tableClass];
     NSArray *allKeys = fieldsTypePair.allKeys;
     for (int i = 0; i < allKeys.count; ++i) {
         NSString *key = allKeys[i];
         
         [sql appendString:key];
         
-        if ([[model class] respondsToSelector:@selector(pK)] && [[[model class] pK] isEqualToString:key]) {
+        if ([tableClass respondsToSelector:@selector(pK)] && [[tableClass pK] isEqualToString:key]) {
             // 主键
-            [sql appendString:@" INTEGER PRIMARY KEY NOT NULL,"];
-        }else if([[model class] respondsToSelector:@selector(fKs)] && [[[model class] fKs] objectForKey:key]) {
+            if ([tableClass respondsToSelector:@selector(supportAutoIncrement)] && [tableClass supportAutoIncrement]) {
+                // 自增长
+                [sql appendString:@" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"];
+            }else {
+                [sql appendString:@" INTEGER PRIMARY KEY NOT NULL,"];
+            }
+        }else if([tableClass respondsToSelector:@selector(fKs)] && [[tableClass fKs] objectForKey:key]) {
             // 外键
-            NSArray *fkTable = [[[model class] fKs] objectForKey:key];
+            NSArray *fkTable = [[tableClass fKs] objectForKey:key];
             NSString *fksql = [NSString stringWithFormat:@" FOREIGN KEY (%@) REFERENCES %@ (%@),",key,fkTable.firstObject,fkTable.lastObject];
             [sql appendString:fksql];
         }else {
@@ -122,6 +135,15 @@ typedef NS_ENUM(NSUInteger,JADBTableType) {
 #pragma mark - 
 #pragma mark insert
 - (void)insertWithModel:(JAModel *)model name:(NSString *)tableName {
+    NSString *errLog = [NSString stringWithFormat:@"model对象 %@ 必须实现+pK方法",model];
+    NSAssert([[model class] respondsToSelector:@selector(pK)], errLog);
+    
+    // 如果该已存在则不添加
+    if ([[model class] pK]) {
+        JAModel * m = [self selectWithValue:[model valueForKey:[[model class] pK]] operator:JADBOperatorComparisonEqual field:[[model class] pK] tableClass:[model class] tableName:tableName];
+        if (m) {return;}
+    }
+    
     NSMutableString *sql = [NSMutableString stringWithString:[NSString stringWithFormat:@"INSERT INTO %@ (",tableName]];
     NSDictionary *fieldsTypePair = [[[model.class alloc] init] ja_propertyAndEncodeTypeList:false];
     fieldsTypePair = [self filterWithDictionay:fieldsTypePair modelClass:[model class]];
@@ -129,6 +151,11 @@ typedef NS_ENUM(NSUInteger,JADBTableType) {
     
     for (int i = 0; i < allKeys.count; ++i) {
         NSString *key = allKeys[i];
+        
+        if ([[model class] respondsToSelector:@selector(supportAutoIncrement)] && [[model class] supportAutoIncrement] && [key isEqualToString:[[model class] pK]]) {
+            continue;
+        }
+        
         [sql appendString:key];
         if (i != (allKeys.count - 1)) {
             [sql appendString:@","];
@@ -139,6 +166,12 @@ typedef NS_ENUM(NSUInteger,JADBTableType) {
     
     for (int i = 0; i < allKeys.count; ++i) {
         NSString *key = allKeys[i];
+        
+        if ([[model class] respondsToSelector:@selector(supportAutoIncrement)] && [[model class] supportAutoIncrement] && [key isEqualToString:[[model class] pK]]) {
+            
+            continue;
+        }
+        
         [sql appendString:@"'"];
         
         id value = [model valueForKeyPath:key];
@@ -156,7 +189,8 @@ typedef NS_ENUM(NSUInteger,JADBTableType) {
                 [sql appendString:value ? [value stringValue] : @""];
             }
                 break;
-            case JADBTableTypeArray: {
+            case JADBTableTypeArray: {                
+                // NSString *relatedValues = @"";
                 // 主表添加id
                 for (int i = 0; i < [value count]; ++i) {
                     
@@ -179,13 +213,26 @@ typedef NS_ENUM(NSUInteger,JADBTableType) {
                         // 创建从表
                         if (i == 0) {
                             if ([[value[i] class] isSubclassOfClass:[JAModel class]]) {
-                                [self createTableWithModel:(JAModel *)[value[i] class] name:NSStringFromClass([value[i] class])];
-                                [self.relationship setObject:NSStringFromClass([value[i] class]) forKey:key];
+                                [self createTableWithClass:[value[i] class] name:NSStringFromClass([value[i] class])];
+                                if (![self.relationship objectForKey:key]) {
+                                    [self.relationship setObject:NSStringFromClass([value[i] class]) forKey:key];
+                                    
+                                }
                             }
                         }
                         
                         // 从表添加记录
                         [self insertWithModel:value[i] name:NSStringFromClass([value[i] class])];
+
+                    }
+                }
+                
+                if ([value count] > 0) {
+                    if (![self selectWithValue:key operator:JADBOperatorComparisonEqual field:[[JARelateModel class] pK] tableClass:[JARelateModel class] tableName:@"JARelateModel"]) {
+                        JARelateModel *relateModel = [[JARelateModel alloc] init];
+                        relateModel.key = key;
+                        relateModel.relateTableName = NSStringFromClass([value[0] class]);
+                        [self insertWithModel:relateModel];
                     }
                 }
 
@@ -208,13 +255,26 @@ typedef NS_ENUM(NSUInteger,JADBTableType) {
                 
                 // 检查 & 创建从表
                 // 默认表名为属性名
-                if ([NSClassFromString([fieldsTypePair objectForKey:key]) isSubclassOfClass:[JAModel class]]) {
-                    [self createTableWithModel:(JAModel *)NSClassFromString([fieldsTypePair objectForKey:key]) name:[fieldsTypePair objectForKey:key]];
-                    [self.relationship setObject:[fieldsTypePair objectForKey:key] forKey:key];
+                if ([[[fieldsTypePair objectForKey:key] class] isSubclassOfClass:[JAModel class]]) {
+                    [self createTableWithClass:NSClassFromString([fieldsTypePair objectForKey:key]) name:[fieldsTypePair objectForKey:key]];
+                    if (![self.relationship objectForKey:key]) {
+                        [self.relationship setObject:[fieldsTypePair objectForKey:key] forKey:key];
+                    }
+                    
                 }
                 
                 // 从表添加model记录
                 [self insertWithModel:value name:[fieldsTypePair objectForKey:key]];
+                
+                // 在关联表中还不存在该记录
+                
+                // if (![self selectWithValue:key tableClass:[JARelateModel class]]) {
+                if (![self selectWithValue:key operator:JADBOperatorComparisonEqual field:[[JARelateModel class] pK] tableClass:[JARelateModel class] tableName:@"JARelateModel"]) {
+                    JARelateModel *relateModel = [[JARelateModel alloc] init];
+                    relateModel.key = key;
+                    relateModel.relateTableName = NSStringFromClass([value class]);
+                    [self insertWithModel:relateModel ];
+                }
             }
                 break;
             default:
@@ -233,14 +293,14 @@ typedef NS_ENUM(NSUInteger,JADBTableType) {
 }
 
 - (void)insertWithModel:(JAModel *)model {
-    [self insertWithModel:model name:self.tableName];
+    [self insertWithModel:model name:NSStringFromClass([model class])];
 }
 
 #pragma mark -
 #pragma mark delete
 
 /// 级联删除
-#warning v0.1.2
+#warning 0.1.2
 - (void)deleteWithValue:(id)value {
     [self deleteWithValue:value
                     field:[self.tableClass pK]
@@ -306,30 +366,46 @@ typedef NS_ENUM(NSUInteger,JADBTableType) {
             }
                 break;
             case JADBTableTypeInteger: {
-                
+                [sql appendString:@([value integerValue]).stringValue];
             }
                 break;
             case JADBTableTypeArray: {
-                for (int i = 0; i < [value count]; ++i) {
-                    if ([[value[i] class] isSubclassOfClass:[NSString class]]) {
+                NSString *relateValues = @"";
+                for (int j = 0; j < [value count]; ++j) {
+                    if ([[value[j] class] isSubclassOfClass:[NSString class]]) {
                         // 字符串数组
                         
-                    }else if ([[value[i] class] isSubclassOfClass:[JAModel class]]) {
+                    }else if ([[value[j] class] isSubclassOfClass:[JAModel class]]) {
                         // 模型数组
-                        if ([[value[i] class] respondsToSelector:@selector(pK)]) {
-                            if ([[value[i] valueForKey:[[value[i] class] pK]] isKindOfClass:[NSNumber class]]) {
-                                [sql appendString:[[value[i] valueForKey:[[value[i] class] pK]] stringValue]];
-                            }else if ([[value[i] valueForKey:[[value[i] class] pK]] isKindOfClass:[NSString class]]) {
-                                [sql appendString:[value[i] valueForKey:[[value[i] class] pK]]];
+                        if ([[value[j] class] respondsToSelector:@selector(pK)]) {
+                            if ([[value[j] valueForKey:[[value[j] class] pK]] isKindOfClass:[NSNumber class]]) {
+                                [sql appendString:[[value[j] valueForKey:[[value[j] class] pK]] stringValue]];
+                                [relateValues stringByAppendingString:[value[j] valueForKey:[[value[j] class] pK]]];
+                            }else if ([[value[j] valueForKey:[[value[j] class] pK]] isKindOfClass:[NSString class]]) {
+                                [sql appendString:[value[j] valueForKey:[[value[j] class] pK]]];
+                                
+                                [relateValues stringByAppendingString:[value[j] valueForKey:[[value[j] class] pK]]];
                             }
                         }
-                        if (i != [value count] - 1) {
+                        if (j != [value count] - 1) {
                             [sql appendString:@";"];
                         }
                         
                         // 从表添加记录
-                        [self updateWithModel:value[i] fields:nil name:NSStringFromClass([value[i] class])];
-                    }else if ([[value[i] class] isSubclassOfClass:[NSArray class]]) {
+                        [self updateWithModel:value[j] fields:nil name:NSStringFromClass([value[j] class])];
+                        
+                        //
+                        if(![self.relationship objectForKey:key]) {
+                            [self.relationship setObject:NSStringFromClass([value[j] class]) forKey:key];
+                            if (![self selectWithValue:key operator:JADBOperatorComparisonEqual field:[[JARelateModel class] pK] tableClass:[JARelateModel class] tableName:@"JARelateModel"]) {
+                                JARelateModel *relateModel = [[JARelateModel alloc] init];
+                                relateModel.key = key;
+                                relateModel.relateTableName = NSStringFromClass([value[j] class]);
+                                [self insertWithModel:relateModel];
+                            }
+                        }
+                        
+                    }else if ([[value[j] class] isSubclassOfClass:[NSArray class]]) {
                         // 集合数组
                         
                     }
@@ -347,6 +423,18 @@ typedef NS_ENUM(NSUInteger,JADBTableType) {
                 }
                 
                 [self updateWithModel:value fields:nil name:[fieldsTypePair objectForKey:key]];
+                
+                if (![self.relationship objectForKey:key]) {
+                    [self.relationship setObject:[fieldsTypePair objectForKey:key] forKey:key];
+                    
+                    // 持久化JAReletateModel
+                    if (![self selectWithValue:key operator:JADBOperatorComparisonEqual field:[[JARelateModel class] pK] tableClass:[JARelateModel class] tableName:@"JARelateModel"]) {
+                        JARelateModel *relateModel = [[JARelateModel alloc] init];
+                        relateModel.key = key;
+                        relateModel.relateTableName = NSStringFromClass([value class]);
+                        [self insertWithModel:relateModel ];
+                    }
+                }
             }
                 break;
             case JADBTableTypeDictionary: {
@@ -381,15 +469,111 @@ typedef NS_ENUM(NSUInteger,JADBTableType) {
 
 #pragma mark -
 #pragma mark select
-- (NSArray<JAModel *> *)selectAllWithTableClass:(id)tableClass name:(NSString *)name{
-    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM %@ ",name];
+- (NSArray <JAModel *> *)selectAll {
+    return [self selectWithValue:nil operator:JADBOperatorNone field:nil tableClass:self.tableClass tableName:nil];
+}
+
+- (id)selectWithValue:(id)value {
+    return [self selectWithValue:value operator:JADBOperatorComparisonEqual];
+}
+
+- (id)selectWithValue:(id)value operator:(JADBOperator)operation {
+    return [self selectWithValue:value operator:operation field:[self.tableClass pK]];
+}
+
+- (id)selectWithValue:(id)value operator:(JADBOperator)operation field:(NSString *)field {
+    return [self selectWithValue:value operator:operation field:field tableClass:self.tableClass tableName:self.tableName];
+}
+
+- (id)selectWithValue:(id)value operator:(JADBOperator)operation field:(NSString *)field tableClass:(Class)tableClass tableName:(NSString *)tableName {
+    
+    NSParameterAssert(tableClass);
+    
+    id m = nil;
+    switch (operation) {
+        case JADBOperatorComparisonEqual: {
+            // 主键
+            if ([field isEqualToString:[tableClass pK]]) {
+                self.resultSet = false;
+            }
+            
+            m = [self selectWithComparison:operation value:value field:field tableClass:tableClass tableName:tableName ? : NSStringFromClass(tableClass)];
+        }
+            break;
+        case JADBOperatorLogicalIn:
+        case JADBOperatorLogicalBetween: {
+            self.resultSet = true;
+            m = [self selectWithLogic:operation value:value field:field tableClass:tableClass tableName:tableName ? : NSStringFromClass(tableClass)];
+        }
+            break;
+        case JADBOperatorNone : {
+            self.resultSet = true;
+            NSString *sql = [NSString stringWithFormat:@"SELECT * FROM %@ ",tableName ? : NSStringFromClass(tableClass)];
+            m = [self internal_selectWithSql:sql tableClass:tableClass];
+        }
+            break;
+        default:
+            break;
+    }
+    return m;
+}
+
+- (id)selectWithComparison:(JADBOperator)operation value:(id)value field:(NSString *)field tableClass:(Class)tableClass tableName:(NSString *)tableName{
+    id m = nil;
+    switch (operation) {
+        case JADBOperatorComparisonEqual: {
+            NSString *sql = [NSString stringWithFormat:@"SELECT * FROM %@ WHERE %@ = '%@'",tableName,field,value];
+            m = [self internal_selectWithSql:sql tableClass:tableClass];
+        }
+            break;
+            
+        default:
+            break;
+    }
+    return m;
+}
+
+- (id)selectWithLogic:(JADBOperator)operation value:(id)value field:(NSString *)field tableClass:(Class) tableClass tableName:(NSString *)tableName {
+    id m = nil;
+    switch (operation) {
+        case JADBOperatorLogicalBetween: {
+            NSAssert(([value isKindOfClass:[NSArray class]] && [value count] == 2), @"[JA]:between条件下value参数需要传数组");
+            NSString *sql = [NSString stringWithFormat:@"SELECT * FROM %@ WHERE %@ BETWEEN %@ AND %@",tableName,field,[value firstObject],[value lastObject]];
+            m = [self internal_selectWithSql:sql tableClass:tableClass];
+        }
+            break;
+        case JADBOperatorLogicalIn: {
+            NSAssert(([value isKindOfClass:[NSArray class]]), @"[JA]:between条件下value参数需要传数组");
+            NSString *sql = [NSString stringWithFormat:@"SELECT * FROM %@ WHERE %@ IN (",tableName,field];
+            for (int i = 0; i < [value count]; ++i) {
+                sql = [sql stringByAppendingString:value[i]];
+                if (i != [value count] - 1) {
+                    sql = [sql stringByAppendingString:@","];
+                }
+            }
+            sql = [sql stringByAppendingString:@")"];
+            m = [self internal_selectWithSql:sql tableClass:tableClass];
+        }
+            break;
+        default:
+            break;
+    }
+    return m;
+}
+
+#pragma mark - 实现查询的方法
+- (id)internal_selectWithSql:(NSString *)sql tableClass:(Class)tableClass {
+    NSString *errLog = [NSString stringWithFormat:@"model对象 %@ 必须实现+pK方法",tableClass];
+    NSAssert([tableClass respondsToSelector:@selector(pK)], errLog);
+    
     NSDictionary *fieldsTypePair = [[[tableClass alloc] init] ja_propertyAndEncodeTypeList:false];
     fieldsTypePair = [self filterWithDictionay:fieldsTypePair modelClass:tableClass];
     NSArray *allKeys = fieldsTypePair.allKeys;
     
     NSMutableArray *secondTableDicsM = [NSMutableArray array];
-    
     NSMutableArray *models = [NSMutableArray array];
+    
+    BOOL resultSet = self.resultSet;
     
     [self.dbQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
         FMResultSet *rs = [db executeQuery:sql];
@@ -398,6 +582,7 @@ typedef NS_ENUM(NSUInteger,JADBTableType) {
             
             JAModel *m = [[tableClass alloc] init];
             NSMutableDictionary *secondTableDic = [NSMutableDictionary dictionary];
+            
             for (NSString *key in allKeys) {
                 
                 JADBTableType type = [self typeWithKey:key fieldsTypePair:fieldsTypePair];
@@ -406,21 +591,27 @@ typedef NS_ENUM(NSUInteger,JADBTableType) {
                         [m setValue:[rs stringForColumn:key] forKey:key];
                     }
                         break;
+                    case JADBTableTypeInteger: {
+                        [m setValue:@([rs intForColumn:key]) forKey:key];
+                    }
+                        break;
                     case JADBTableTypeNumber: {
                         [m setValue:@([[rs stringForColumn:key] doubleValue]) forKey:key];
                     }
                         break;
                     case JADBTableTypeModel: {
                         // 1.找出从表
+                        // 崩溃的原因是 self.relationship 并不是数据库中准确的
                         NSString *secondaryTableName = [self.relationship objectForKey:key];
                         
+                        // 因为self.relationship保存关联关系的没有持久化就不对了
                         // 2.根据id找出从表的记录,返回模型,对模型属性赋值
                         [secondTableDic setObject:@[secondaryTableName,@[[rs stringForColumn:key]]] forKey:key];
                     }
                         break;
                     case JADBTableTypeArray: {
-                        
                         // 数组元素是模型
+                        
                         if ([rs stringForColumn:key].length > 0) {
                             NSArray *fields = [[rs stringForColumn:key] componentsSeparatedByString:@";"];
                             NSString *secondaryTableName = [self.relationship objectForKey:key];
@@ -442,105 +633,64 @@ typedef NS_ENUM(NSUInteger,JADBTableType) {
         }
     }];
     
-    for (int i = 0; i < [secondTableDicsM count]; ++i) {
-        NSMutableDictionary *secondTableDics = secondTableDicsM[i];
-        [secondTableDics enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, NSArray * _Nonnull obj, BOOL * _Nonnull stop) {
-            for (int j = 0; j < [obj.lastObject count]; ++j) {
-                if ([obj.lastObject count] == 1) {
-                    [models[i] setValue:[self selectWithValue:obj.lastObject[0] tableClass:NSClassFromString(obj.firstObject) name:obj.firstObject] forKey:key];
-                }else if ([obj.lastObject count] > 1) {
-                    NSMutableArray *ms = [NSMutableArray arrayWithCapacity:[obj.lastObject count]];
-                    JAModel *model = [self selectWithValue:obj.lastObject[j] tableClass:NSClassFromString(obj.firstObject) name:obj.firstObject];
-                    [ms addObject:model];
-                    if (j == [obj.lastObject count] - 1) {
-                        [models[i] setValue:[ms copy] forKey:key];
-                    }
-                }
-            }
-        }];
-    }
-
-    return [models copy];
-}
-
-- (id)selectWithValue:(id)value tableClass:(id)tableClass {
-   return [self selectWithValue:value tableClass:tableClass name:self.tableName];
-}
-
-- (JAModel *)selectWithValue:(id)value tableClass:(id)tableClass name:(NSString *)name{
-    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM %@ WHERE %@ = '%@'",name,[tableClass pK],value];
-    
-    NSDictionary *fieldsTypePair = [[[tableClass alloc] init] ja_propertyAndEncodeTypeList:false];
-    fieldsTypePair = [self filterWithDictionay:fieldsTypePair modelClass:tableClass];
-    NSArray *allKeys = fieldsTypePair.allKeys;
-    
-    JAModel *m = [[tableClass alloc] init];
-    
-    NSMutableDictionary *secondTableDic = [NSMutableDictionary dictionary];
-    
-    [self.dbQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
-        FMResultSet *rs = [db executeQuery:sql];
-        
-        while ([rs next]) {
-            for (NSString *key in allKeys) {
-                
-                JADBTableType type = [self typeWithKey:key fieldsTypePair:fieldsTypePair];
-                switch (type) {
-                    case JADBTableTypeString: {
-                        [m setValue:[rs stringForColumn:key] forKey:key];
-                    }
-                        break;
-                    case JADBTableTypeNumber: {
-                        [m setValue:@([[rs stringForColumn:key] doubleValue]) forKey:key];
-                    }
-                        break;
-                    case JADBTableTypeModel: {
-                        // 1.找出从表
-                        NSString *secondaryTableName = [self.relationship objectForKey:key];
+    if ([models count] > 0) {
+        NSMutableArray *ms = [NSMutableArray array];
+        for (int i = 0; i < [secondTableDicsM count]; ++i) {
+            // 对象关联的属性
+            NSMutableDictionary *secondTableDics = secondTableDicsM[i];
+            [secondTableDics enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, NSArray * _Nonnull obj, BOOL * _Nonnull stop) {
+                for (int j = 0; j < [obj.lastObject count]; ++j) {
+                    // 根据obj的lastObject的元素个数来判断是模型还是数组是不行的,因为可能是只有一个元素的数组
+                    if ([[fieldsTypePair objectForKey:key] rangeOfString:@"Model"].location != NSNotFound) {
+                        [models[i] setValue:[self selectWithValue:obj.lastObject[0] operator:JADBOperatorComparisonEqual field:[NSClassFromString(obj.firstObject) pK] tableClass:NSClassFromString(obj.firstObject) tableName:obj.firstObject] forKey:key];
+                    }else {
                         
-                        // 因为self.relationship保存关联关系的没有持久化就不对了
-                        // 2.根据id找出从表的记录,返回模型,对模型属性赋值
-                        [secondTableDic setObject:@[secondaryTableName,@[[rs stringForColumn:key]]] forKey:key];
-                    }
-                        break;
-                    case JADBTableTypeArray: {
-                        // 数组元素是模型
-                    
-                        if ([rs stringForColumn:key].length > 0) {
-                            NSArray *fields = [[rs stringForColumn:key] componentsSeparatedByString:@";"];
-                            NSString *secondaryTableName = [self.relationship objectForKey:key];
-                            [secondTableDic setObject:@[secondaryTableName,fields] forKey:key];
+                        JAModel *model = [self selectWithValue:obj.lastObject[j] operator:JADBOperatorComparisonEqual field:[NSClassFromString(obj.firstObject) pK] tableClass:NSClassFromString(obj.firstObject) tableName:obj.firstObject];
+                        
+                        [ms addObject:model];
+                        if (j == [obj.lastObject count] - 1) {
+                            [models[i] setValue:[ms copy] forKey:key];
                         }
                     }
-                        break;
-                    case JADBTableTypeDictionary: {
+                    
+                    /*
+                    if ([obj.lastObject count] == 1) {
                         
+                        [models[i] setValue:[self selectWithValue:obj.lastObject[0] operator:JADBOperatorComparisonEqual field:[NSClassFromString(obj.firstObject) pK] tableClass:NSClassFromString(obj.firstObject) tableName:obj.firstObject] forKey:key];
+                        
+                    }else if ([obj.lastObject count] > 1) {
+                        NSMutableArray *ms = [NSMutableArray arrayWithCapacity:[obj.lastObject count]];
+                        
+                        JAModel *model = [self selectWithValue:obj.lastObject[j] operator:JADBOperatorComparisonEqual field:[NSClassFromString(obj.firstObject) pK] tableClass:NSClassFromString(obj.firstObject) tableName:obj.firstObject];
+                        
+                        [ms addObject:model];
+                        if (j == [obj.lastObject count] - 1) {
+                            [models[i] setValue:[ms copy] forKey:key];
+                        }
                     }
-                        break;
-                    default:
-                        break;
+                     */
                 }
-            }
+            }];
         }
-    }];
+    }else {
+        models = nil;
+    }
     
-    [secondTableDic enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, NSArray * _Nonnull obj, BOOL * _Nonnull stop) {
-        
-        for (int i = 0; i < [obj.lastObject count]; ++i) {
-            if ([obj.lastObject count] == 1) {
-                [m setValue:[self selectWithValue:obj.lastObject[0] tableClass:NSClassFromString(obj.firstObject) name:obj.firstObject] forKey:key];
-            }else if ([obj.lastObject count] > 1) {
-                NSMutableArray *models = [NSMutableArray arrayWithCapacity:[obj.lastObject count]];
-                JAModel *model = [self selectWithValue:obj.lastObject[i] tableClass:NSClassFromString(obj.firstObject) name:obj.firstObject];
-                [models addObject:model];
-                if (i == [obj.lastObject count] - 1) {
-                    [m setValue:[models copy] forKey:key];
-                }
-            }
+    // 没有找到符合条件的记录
+    if (models.count == 0) { return models; }
+    
+    /// 找到的是一条还是多条?
+    /// 一般情况下用selectWithValue: 是用主键去查找的,一般只有一条
+    /// 而selectAll一般认为返回的是一个数组或nil
+    /// 其他情况也认为是多条
+    /// 现在的问题是让外界处理时,认为是数组还是模型比较好? 如果我用主键找,返回一个数组 这就是bug
+    if (resultSet == false) {
+        if (models.count == 1) {
+            return models.firstObject;
         }
-    }];
+    }
     
-    return m;
+    return [models copy];
 }
 
 #pragma mark -
@@ -577,7 +727,6 @@ typedef NS_ENUM(NSUInteger,JADBTableType) {
 }
 
 - (NSDictionary *)filterWithDictionay:(NSDictionary *)dic modelClass:(Class)modelClass{
-    
     NSMutableDictionary *dicM = [NSMutableDictionary dictionaryWithDictionary:dic];
     if ([modelClass respondsToSelector:@selector(whiteList)]) {
         NSArray *ws = [modelClass whiteList];
@@ -637,23 +786,35 @@ typedef NS_ENUM(NSUInteger,JADBTableType) {
         type = JADBTableTypeDictionary;
     }else if ([NSStringFromClass([v class]) rangeOfString:@"Model"].location != NSNotFound) {
         type = JADBTableTypeModel;
+    }else if ([NSStringFromClass([v class]) rangeOfString:@"Bool"].location != NSNotFound) {
+        type = JADBTableTypeInteger;
     }
     return type;
+}
+
+/// 不能在selectXXX方法内使用
+- (void)syncRelationTable {
+    [self createTableWithClass:[JARelateModel class]];
+    NSArray *results = [self selectWithValue:nil operator:JADBOperatorNone field:nil tableClass:[JARelateModel class] tableName:nil];
+    if (results) {
+        for (int i = 0; i < results.count; ++i) {
+            [self.relationship setObject:[results[i] relateTableName]  forKey:[results[i] key]];
+        }
+    }
+#if DEBUG
+    NSLog(@"%@",self.relationship);
+#endif
 }
 
 #pragma mark -
 #pragma mark LazyLoad
 - (NSMutableDictionary *)relationship {
     if (!_relationship) {
-        // 必须先尝试从数据库取数据
-        // @{属性:@[表名;@[1,2,..]}
-        // id 属性 tablename values
         _relationship = [NSMutableDictionary dictionary];
     }
     return _relationship;
 }
-
-- (NSArray *)subTableNames {
+- (NSArray *)secondaryTableNames {
     return [self.relationship allValues];
 }
 @end

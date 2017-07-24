@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		2E0BD21E36401081FAC84FC7 /* libPods-JAReader.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80F77701BA4143C499EE6FD6 /* libPods-JAReader.a */; };
-		962D44C31F1FA22700A80F1A /* JADBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 962D44C01F1FA22700A80F1A /* JADBManager.m */; };
-		962D44C41F1FA22700A80F1A /* JADBTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 962D44C21F1FA22700A80F1A /* JADBTable.m */; };
-		96C37FFC1F031D2F00AB0820 /* MSBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C37FF71F031D2F00AB0820 /* MSBookModel.m */; };
-		96C37FFD1F031D2F00AB0820 /* MSCharterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C37FF91F031D2F00AB0820 /* MSCharterModel.m */; };
-		96C37FFE1F031D2F00AB0820 /* MSUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C37FFB1F031D2F00AB0820 /* MSUserModel.m */; };
-		96C380011F031D4600AB0820 /* JAModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C380001F031D4600AB0820 /* JAModel.m */; };
+		962D450B1F2046EF00A80F1A /* JADBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 962D45061F2046EF00A80F1A /* JADBManager.m */; };
+		962D450C1F2046EF00A80F1A /* JADBTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 962D45081F2046EF00A80F1A /* JADBTable.m */; };
+		962D450D1F2046EF00A80F1A /* JARelateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 962D450A1F2046EF00A80F1A /* JARelateModel.m */; };
+		962D45101F20476900A80F1A /* NSObject+JACoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 962D450F1F20476900A80F1A /* NSObject+JACoder.m */; };
+		9677BA6C1F2607D800AB48D4 /* JAModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9677BA611F2607D800AB48D4 /* JAModel.m */; };
+		9677BA6D1F2607D800AB48D4 /* MSBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9677BA631F2607D800AB48D4 /* MSBookModel.m */; };
+		9677BA6E1F2607D800AB48D4 /* MSCharterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9677BA651F2607D800AB48D4 /* MSCharterModel.m */; };
+		9677BA6F1F2607D900AB48D4 /* MSCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9677BA671F2607D800AB48D4 /* MSCommentModel.m */; };
+		9677BA701F2607D900AB48D4 /* MSRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9677BA691F2607D800AB48D4 /* MSRecordModel.m */; };
+		9677BA711F2607D900AB48D4 /* MSUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9677BA6B1F2607D800AB48D4 /* MSUserModel.m */; };
+		9677BA741F26085C00AB48D4 /* JACellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9677BA731F26085C00AB48D4 /* JACellModel.m */; };
 		96C3802D1F0325AD00AB0820 /* NSArray+JACoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C380061F0325AD00AB0820 /* NSArray+JACoder.m */; };
 		96C3802E1F0325AD00AB0820 /* NSBundle+JACoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C380081F0325AD00AB0820 /* NSBundle+JACoder.m */; };
 		96C3802F1F0325AD00AB0820 /* NSData+JACoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C3800A1F0325AD00AB0820 /* NSData+JACoder.m */; };
@@ -21,7 +26,6 @@
 		96C380311F0325AD00AB0820 /* NSDictionary+JACoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C3800E1F0325AD00AB0820 /* NSDictionary+JACoder.m */; };
 		96C380321F0325AD00AB0820 /* NSFileManager+JACoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C380101F0325AD00AB0820 /* NSFileManager+JACoder.m */; };
 		96C380331F0325AD00AB0820 /* NSNumber+JACoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C380121F0325AD00AB0820 /* NSNumber+JACoder.m */; };
-		96C380341F0325AD00AB0820 /* NSObject+JACoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C380141F0325AD00AB0820 /* NSObject+JACoder.m */; };
 		96C380351F0325AD00AB0820 /* NSString+JACoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C380161F0325AD00AB0820 /* NSString+JACoder.m */; };
 		96C380361F0325AD00AB0820 /* NSURL+JACoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C380181F0325AD00AB0820 /* NSURL+JACoder.m */; };
 		96C380371F0325AD00AB0820 /* UIButton+JACoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C3801A1F0325AD00AB0820 /* UIButton+JACoder.m */; };
@@ -35,7 +39,6 @@
 		96C3803F1F0325AD00AB0820 /* UITableView+JACoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C3802A1F0325AD00AB0820 /* UITableView+JACoder.m */; };
 		96C380401F0325AD00AB0820 /* UIView+JACoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C3802C1F0325AD00AB0820 /* UIView+JACoder.m */; };
 		96C380551F03294100AB0820 /* MSNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C380541F03294100AB0820 /* MSNetworkManager.m */; };
-		96C380791F04757900AB0820 /* MSRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C380781F04757900AB0820 /* MSRecordModel.m */; };
 		96E6056F1F127AFA008F98FD /* JANetworkAFTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E605691F127AFA008F98FD /* JANetworkAFTask.m */; };
 		96E605701F127AFA008F98FD /* JANetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E6056B1F127AFA008F98FD /* JANetworkManager.m */; };
 		96E605711F127AFA008F98FD /* JANetworkMBHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E6056D1F127AFA008F98FD /* JANetworkMBHud.m */; };
@@ -58,18 +61,28 @@
 		599BEE1B754708FB1D58BF36 /* Pods-JAReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JAReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-JAReader/Pods-JAReader.release.xcconfig"; sourceTree = "<group>"; };
 		77544448C247719603D5357B /* Pods-JAReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JAReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JAReader/Pods-JAReader.debug.xcconfig"; sourceTree = "<group>"; };
 		80F77701BA4143C499EE6FD6 /* libPods-JAReader.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JAReader.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		962D44BF1F1FA22700A80F1A /* JADBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JADBManager.h; sourceTree = "<group>"; };
-		962D44C01F1FA22700A80F1A /* JADBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JADBManager.m; sourceTree = "<group>"; };
-		962D44C11F1FA22700A80F1A /* JADBTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JADBTable.h; sourceTree = "<group>"; };
-		962D44C21F1FA22700A80F1A /* JADBTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JADBTable.m; sourceTree = "<group>"; };
-		96C37FF61F031D2F00AB0820 /* MSBookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSBookModel.h; path = ../MSBookModel.h; sourceTree = "<group>"; };
-		96C37FF71F031D2F00AB0820 /* MSBookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSBookModel.m; path = ../MSBookModel.m; sourceTree = "<group>"; };
-		96C37FF81F031D2F00AB0820 /* MSCharterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSCharterModel.h; path = ../MSCharterModel.h; sourceTree = "<group>"; };
-		96C37FF91F031D2F00AB0820 /* MSCharterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSCharterModel.m; path = ../MSCharterModel.m; sourceTree = "<group>"; };
-		96C37FFA1F031D2F00AB0820 /* MSUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSUserModel.h; path = ../MSUserModel.h; sourceTree = "<group>"; };
-		96C37FFB1F031D2F00AB0820 /* MSUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSUserModel.m; path = ../MSUserModel.m; sourceTree = "<group>"; };
-		96C37FFF1F031D4600AB0820 /* JAModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JAModel.h; path = ../JAModel.h; sourceTree = "<group>"; };
-		96C380001F031D4600AB0820 /* JAModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JAModel.m; path = ../JAModel.m; sourceTree = "<group>"; };
+		962D45051F2046EF00A80F1A /* JADBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JADBManager.h; sourceTree = "<group>"; };
+		962D45061F2046EF00A80F1A /* JADBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JADBManager.m; sourceTree = "<group>"; };
+		962D45071F2046EF00A80F1A /* JADBTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JADBTable.h; sourceTree = "<group>"; };
+		962D45081F2046EF00A80F1A /* JADBTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JADBTable.m; sourceTree = "<group>"; };
+		962D45091F2046EF00A80F1A /* JARelateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JARelateModel.h; sourceTree = "<group>"; };
+		962D450A1F2046EF00A80F1A /* JARelateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JARelateModel.m; sourceTree = "<group>"; };
+		962D450E1F20476900A80F1A /* NSObject+JACoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JACoder.h"; sourceTree = "<group>"; };
+		962D450F1F20476900A80F1A /* NSObject+JACoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JACoder.m"; sourceTree = "<group>"; };
+		9677BA601F2607D800AB48D4 /* JAModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAModel.h; sourceTree = "<group>"; };
+		9677BA611F2607D800AB48D4 /* JAModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAModel.m; sourceTree = "<group>"; };
+		9677BA621F2607D800AB48D4 /* MSBookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSBookModel.h; sourceTree = "<group>"; };
+		9677BA631F2607D800AB48D4 /* MSBookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSBookModel.m; sourceTree = "<group>"; };
+		9677BA641F2607D800AB48D4 /* MSCharterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCharterModel.h; sourceTree = "<group>"; };
+		9677BA651F2607D800AB48D4 /* MSCharterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCharterModel.m; sourceTree = "<group>"; };
+		9677BA661F2607D800AB48D4 /* MSCommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCommentModel.h; sourceTree = "<group>"; };
+		9677BA671F2607D800AB48D4 /* MSCommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCommentModel.m; sourceTree = "<group>"; };
+		9677BA681F2607D800AB48D4 /* MSRecordModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSRecordModel.h; sourceTree = "<group>"; };
+		9677BA691F2607D800AB48D4 /* MSRecordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSRecordModel.m; sourceTree = "<group>"; };
+		9677BA6A1F2607D800AB48D4 /* MSUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSUserModel.h; sourceTree = "<group>"; };
+		9677BA6B1F2607D800AB48D4 /* MSUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSUserModel.m; sourceTree = "<group>"; };
+		9677BA721F26085C00AB48D4 /* JACellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JACellModel.h; sourceTree = "<group>"; };
+		9677BA731F26085C00AB48D4 /* JACellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JACellModel.m; sourceTree = "<group>"; };
 		96C380041F0325AD00AB0820 /* JACategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JACategory.h; sourceTree = "<group>"; };
 		96C380051F0325AD00AB0820 /* NSArray+JACoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+JACoder.h"; sourceTree = "<group>"; };
 		96C380061F0325AD00AB0820 /* NSArray+JACoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+JACoder.m"; sourceTree = "<group>"; };
@@ -85,8 +98,6 @@
 		96C380101F0325AD00AB0820 /* NSFileManager+JACoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+JACoder.m"; sourceTree = "<group>"; };
 		96C380111F0325AD00AB0820 /* NSNumber+JACoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+JACoder.h"; sourceTree = "<group>"; };
 		96C380121F0325AD00AB0820 /* NSNumber+JACoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+JACoder.m"; sourceTree = "<group>"; };
-		96C380131F0325AD00AB0820 /* NSObject+JACoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JACoder.h"; sourceTree = "<group>"; };
-		96C380141F0325AD00AB0820 /* NSObject+JACoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JACoder.m"; sourceTree = "<group>"; };
 		96C380151F0325AD00AB0820 /* NSString+JACoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JACoder.h"; sourceTree = "<group>"; };
 		96C380161F0325AD00AB0820 /* NSString+JACoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JACoder.m"; sourceTree = "<group>"; };
 		96C380171F0325AD00AB0820 /* NSURL+JACoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+JACoder.h"; sourceTree = "<group>"; };
@@ -113,8 +124,6 @@
 		96C3802C1F0325AD00AB0820 /* UIView+JACoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JACoder.m"; sourceTree = "<group>"; };
 		96C380531F03294100AB0820 /* MSNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSNetworkManager.h; sourceTree = "<group>"; };
 		96C380541F03294100AB0820 /* MSNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSNetworkManager.m; sourceTree = "<group>"; };
-		96C380771F04757900AB0820 /* MSRecordModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSRecordModel.h; sourceTree = "<group>"; };
-		96C380781F04757900AB0820 /* MSRecordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSRecordModel.m; sourceTree = "<group>"; };
 		96E605681F127AFA008F98FD /* JANetworkAFTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANetworkAFTask.h; sourceTree = "<group>"; };
 		96E605691F127AFA008F98FD /* JANetworkAFTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANetworkAFTask.m; sourceTree = "<group>"; };
 		96E6056A1F127AFA008F98FD /* JANetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANetworkManager.h; sourceTree = "<group>"; };
@@ -163,12 +172,35 @@
 		966F32D81F111800001D7E4E /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				962D44BF1F1FA22700A80F1A /* JADBManager.h */,
-				962D44C01F1FA22700A80F1A /* JADBManager.m */,
-				962D44C11F1FA22700A80F1A /* JADBTable.h */,
-				962D44C21F1FA22700A80F1A /* JADBTable.m */,
+				962D45051F2046EF00A80F1A /* JADBManager.h */,
+				962D45061F2046EF00A80F1A /* JADBManager.m */,
+				962D45071F2046EF00A80F1A /* JADBTable.h */,
+				962D45081F2046EF00A80F1A /* JADBTable.m */,
+				962D45091F2046EF00A80F1A /* JARelateModel.h */,
+				962D450A1F2046EF00A80F1A /* JARelateModel.m */,
 			);
 			path = Database;
+			sourceTree = "<group>";
+		};
+		9677BA5F1F2607D800AB48D4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9677BA601F2607D800AB48D4 /* JAModel.h */,
+				9677BA611F2607D800AB48D4 /* JAModel.m */,
+				9677BA721F26085C00AB48D4 /* JACellModel.h */,
+				9677BA731F26085C00AB48D4 /* JACellModel.m */,
+				9677BA621F2607D800AB48D4 /* MSBookModel.h */,
+				9677BA631F2607D800AB48D4 /* MSBookModel.m */,
+				9677BA641F2607D800AB48D4 /* MSCharterModel.h */,
+				9677BA651F2607D800AB48D4 /* MSCharterModel.m */,
+				9677BA661F2607D800AB48D4 /* MSCommentModel.h */,
+				9677BA671F2607D800AB48D4 /* MSCommentModel.m */,
+				9677BA681F2607D800AB48D4 /* MSRecordModel.h */,
+				9677BA691F2607D800AB48D4 /* MSRecordModel.m */,
+				9677BA6A1F2607D800AB48D4 /* MSUserModel.h */,
+				9677BA6B1F2607D800AB48D4 /* MSUserModel.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		96816A841EF423C200E1F38D /* Reader */ = {
@@ -184,30 +216,13 @@
 				96F2A2461EFD67E800C42B63 /* JAReaderView.m */,
 				96F2A2491EFD67E800C42B63 /* JAReaderParser.h */,
 				96F2A24A1EFD67E800C42B63 /* JAReaderParser.m */,
-				96C380021F031DED00AB0820 /* Model */,
 				96E605791F1440ED008F98FD /* MSMenuView.h */,
 				96E6057A1F1440ED008F98FD /* MSMenuView.m */,
 				96E6057C1F14431F008F98FD /* MSTopMenuView.h */,
 				96E6057D1F14431F008F98FD /* MSTopMenuView.m */,
+				9677BA5F1F2607D800AB48D4 /* Models */,
 			);
 			path = Reader;
-			sourceTree = "<group>";
-		};
-		96C380021F031DED00AB0820 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				96C37FFF1F031D4600AB0820 /* JAModel.h */,
-				96C380001F031D4600AB0820 /* JAModel.m */,
-				96C37FF61F031D2F00AB0820 /* MSBookModel.h */,
-				96C37FF71F031D2F00AB0820 /* MSBookModel.m */,
-				96C37FF81F031D2F00AB0820 /* MSCharterModel.h */,
-				96C37FF91F031D2F00AB0820 /* MSCharterModel.m */,
-				96C37FFA1F031D2F00AB0820 /* MSUserModel.h */,
-				96C37FFB1F031D2F00AB0820 /* MSUserModel.m */,
-				96C380771F04757900AB0820 /* MSRecordModel.h */,
-				96C380781F04757900AB0820 /* MSRecordModel.m */,
-			);
-			name = Model;
 			sourceTree = "<group>";
 		};
 		96C380031F0325AD00AB0820 /* Category */ = {
@@ -228,8 +243,8 @@
 				96C380101F0325AD00AB0820 /* NSFileManager+JACoder.m */,
 				96C380111F0325AD00AB0820 /* NSNumber+JACoder.h */,
 				96C380121F0325AD00AB0820 /* NSNumber+JACoder.m */,
-				96C380131F0325AD00AB0820 /* NSObject+JACoder.h */,
-				96C380141F0325AD00AB0820 /* NSObject+JACoder.m */,
+				962D450E1F20476900A80F1A /* NSObject+JACoder.h */,
+				962D450F1F20476900A80F1A /* NSObject+JACoder.m */,
 				96C380151F0325AD00AB0820 /* NSString+JACoder.h */,
 				96C380161F0325AD00AB0820 /* NSString+JACoder.m */,
 				96C380171F0325AD00AB0820 /* NSURL+JACoder.h */,
@@ -463,41 +478,44 @@
 				96C3803E1F0325AD00AB0820 /* UIScreen+JACoder.m in Sources */,
 				96F2A2511EFD67E800C42B63 /* JAReaderViewController.m in Sources */,
 				96F2A2501EFD67E800C42B63 /* JAReaderParser.m in Sources */,
-				96C37FFE1F031D2F00AB0820 /* MSUserModel.m in Sources */,
 				96C380391F0325AD00AB0820 /* UIColor+JACoder.m in Sources */,
 				96E6057E1F14431F008F98FD /* MSTopMenuView.m in Sources */,
+				9677BA6E1F2607D800AB48D4 /* MSCharterModel.m in Sources */,
+				9677BA701F2607D900AB48D4 /* MSRecordModel.m in Sources */,
 				96C380321F0325AD00AB0820 /* NSFileManager+JACoder.m in Sources */,
 				96C380351F0325AD00AB0820 /* NSString+JACoder.m in Sources */,
 				96C380401F0325AD00AB0820 /* UIView+JACoder.m in Sources */,
 				96C380381F0325AD00AB0820 /* UICollectionView+JACoder.m in Sources */,
-				96C380341F0325AD00AB0820 /* NSObject+JACoder.m in Sources */,
+				962D450D1F2046EF00A80F1A /* JARelateModel.m in Sources */,
+				9677BA741F26085C00AB48D4 /* JACellModel.m in Sources */,
 				96F425921EF2CC00005610C3 /* ViewController.m in Sources */,
 				96F4258F1EF2CC00005610C3 /* AppDelegate.m in Sources */,
 				96C3803D1F0325AD00AB0820 /* UINavigationController+JACoder.m in Sources */,
 				96F4258C1EF2CC00005610C3 /* main.m in Sources */,
 				96E605701F127AFA008F98FD /* JANetworkManager.m in Sources */,
 				96C3802D1F0325AD00AB0820 /* NSArray+JACoder.m in Sources */,
+				9677BA6C1F2607D800AB48D4 /* JAModel.m in Sources */,
 				96C3802E1F0325AD00AB0820 /* NSBundle+JACoder.m in Sources */,
 				96C380361F0325AD00AB0820 /* NSURL+JACoder.m in Sources */,
 				96E605711F127AFA008F98FD /* JANetworkMBHud.m in Sources */,
-				962D44C31F1FA22700A80F1A /* JADBManager.m in Sources */,
+				962D450B1F2046EF00A80F1A /* JADBManager.m in Sources */,
 				96C380331F0325AD00AB0820 /* NSNumber+JACoder.m in Sources */,
-				96C37FFD1F031D2F00AB0820 /* MSCharterModel.m in Sources */,
 				96F2A24D1EFD67E800C42B63 /* JAReaderConfig.m in Sources */,
 				96C3802F1F0325AD00AB0820 /* NSData+JACoder.m in Sources */,
-				96C380011F031D4600AB0820 /* JAModel.m in Sources */,
+				9677BA6D1F2607D800AB48D4 /* MSBookModel.m in Sources */,
 				96C380551F03294100AB0820 /* MSNetworkManager.m in Sources */,
 				96C3803F1F0325AD00AB0820 /* UITableView+JACoder.m in Sources */,
-				96C37FFC1F031D2F00AB0820 /* MSBookModel.m in Sources */,
+				962D45101F20476900A80F1A /* NSObject+JACoder.m in Sources */,
 				96C3803B1F0325AD00AB0820 /* UIImage+JACoder.m in Sources */,
-				96C380791F04757900AB0820 /* MSRecordModel.m in Sources */,
 				96C3803A1F0325AD00AB0820 /* UIDevice+JACoder.m in Sources */,
-				962D44C41F1FA22700A80F1A /* JADBTable.m in Sources */,
+				9677BA711F2607D900AB48D4 /* MSUserModel.m in Sources */,
+				962D450C1F2046EF00A80F1A /* JADBTable.m in Sources */,
 				96C3803C1F0325AD00AB0820 /* UINavigationBar+JACoder.m in Sources */,
 				96C380301F0325AD00AB0820 /* NSDate+JACoder.m in Sources */,
 				96C380371F0325AD00AB0820 /* UIButton+JACoder.m in Sources */,
 				96C380311F0325AD00AB0820 /* NSDictionary+JACoder.m in Sources */,
 				96E6057B1F1440ED008F98FD /* MSMenuView.m in Sources */,
+				9677BA6F1F2607D900AB48D4 /* MSCommentModel.m in Sources */,
 				96F2A24E1EFD67E800C42B63 /* JAReaderView.m in Sources */,
 				96F2A24F1EFD67E800C42B63 /* JAReaderPageViewController.m in Sources */,
 				96E6056F1F127AFA008F98FD /* JANetworkAFTask.m in Sources */,
