@@ -39,16 +39,25 @@
 		96C3803F1F0325AD00AB0820 /* UITableView+JACoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C3802A1F0325AD00AB0820 /* UITableView+JACoder.m */; };
 		96C380401F0325AD00AB0820 /* UIView+JACoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C3802C1F0325AD00AB0820 /* UIView+JACoder.m */; };
 		96C380551F03294100AB0820 /* MSNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C380541F03294100AB0820 /* MSNetworkManager.m */; };
-		96E6056F1F127AFA008F98FD /* JANetworkAFTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E605691F127AFA008F98FD /* JANetworkAFTask.m */; };
-		96E605701F127AFA008F98FD /* JANetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E6056B1F127AFA008F98FD /* JANetworkManager.m */; };
-		96E605711F127AFA008F98FD /* JANetworkMBHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E6056D1F127AFA008F98FD /* JANetworkMBHud.m */; };
-		96E6057B1F1440ED008F98FD /* MSMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E6057A1F1440ED008F98FD /* MSMenuView.m */; };
-		96E6057E1F14431F008F98FD /* MSTopMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E6057D1F14431F008F98FD /* MSTopMenuView.m */; };
-		96F2A24D1EFD67E800C42B63 /* JAReaderConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F2A2441EFD67E800C42B63 /* JAReaderConfig.m */; };
-		96F2A24E1EFD67E800C42B63 /* JAReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F2A2461EFD67E800C42B63 /* JAReaderView.m */; };
-		96F2A24F1EFD67E800C42B63 /* JAReaderPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F2A2481EFD67E800C42B63 /* JAReaderPageViewController.m */; };
-		96F2A2501EFD67E800C42B63 /* JAReaderParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F2A24A1EFD67E800C42B63 /* JAReaderParser.m */; };
-		96F2A2511EFD67E800C42B63 /* JAReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F2A24C1EFD67E800C42B63 /* JAReaderViewController.m */; };
+		96C72FED1F3C11A400C69108 /* BackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C72FCC1F3C11A400C69108 /* BackViewController.m */; };
+		96C72FEE1F3C11A400C69108 /* JABatteryStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C72FCE1F3C11A400C69108 /* JABatteryStatusView.m */; };
+		96C72FEF1F3C11A400C69108 /* JABottomMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C72FD01F3C11A400C69108 /* JABottomMenuView.m */; };
+		96C72FF01F3C11A400C69108 /* JABrightnessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C72FD21F3C11A400C69108 /* JABrightnessView.m */; };
+		96C72FF11F3C11A400C69108 /* JACatalogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C72FD41F3C11A400C69108 /* JACatalogViewController.m */; };
+		96C72FF21F3C11A400C69108 /* JAFontView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C72FD61F3C11A400C69108 /* JAFontView.m */; };
+		96C72FF31F3C11A400C69108 /* JAMagnifierView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C72FD81F3C11A400C69108 /* JAMagnifierView.m */; };
+		96C72FF41F3C11A400C69108 /* JAMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C72FDA1F3C11A400C69108 /* JAMenuView.m */; };
+		96C72FF51F3C11A400C69108 /* JAReaderConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C72FDC1F3C11A400C69108 /* JAReaderConfig.m */; };
+		96C72FF61F3C11A400C69108 /* JAReaderPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C72FDE1F3C11A400C69108 /* JAReaderPageViewController.m */; };
+		96C72FF71F3C11A400C69108 /* JAReaderParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C72FE01F3C11A400C69108 /* JAReaderParser.m */; };
+		96C72FF81F3C11A400C69108 /* JAReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C72FE21F3C11A400C69108 /* JAReaderView.m */; };
+		96C72FF91F3C11A400C69108 /* JAReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C72FE41F3C11A400C69108 /* JAReaderViewController.m */; };
+		96C72FFA1F3C11A400C69108 /* JASlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C72FE61F3C11A400C69108 /* JASlider.m */; };
+		96C72FFB1F3C11A400C69108 /* JAToastButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C72FE81F3C11A400C69108 /* JAToastButton.m */; };
+		96C72FFC1F3C11A400C69108 /* JATopMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C72FEA1F3C11A400C69108 /* JATopMenuView.m */; };
+		96C72FFD1F3C11A400C69108 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C72FEC1F3C11A400C69108 /* UIImage+ImageEffects.m */; };
+		96C730001F3C11DA00C69108 /* MSHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C72FFF1F3C11DA00C69108 /* MSHTTPSessionManager.m */; };
+		96C730031F3C11E800C69108 /* JAHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C730021F3C11E800C69108 /* JAHTTPSessionManager.m */; };
 		96F4258C1EF2CC00005610C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F4258B1EF2CC00005610C3 /* main.m */; };
 		96F4258F1EF2CC00005610C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F4258E1EF2CC00005610C3 /* AppDelegate.m */; };
 		96F425921EF2CC00005610C3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F425911EF2CC00005610C3 /* ViewController.m */; };
@@ -124,27 +133,44 @@
 		96C3802C1F0325AD00AB0820 /* UIView+JACoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JACoder.m"; sourceTree = "<group>"; };
 		96C380531F03294100AB0820 /* MSNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSNetworkManager.h; sourceTree = "<group>"; };
 		96C380541F03294100AB0820 /* MSNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSNetworkManager.m; sourceTree = "<group>"; };
-		96E605681F127AFA008F98FD /* JANetworkAFTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANetworkAFTask.h; sourceTree = "<group>"; };
-		96E605691F127AFA008F98FD /* JANetworkAFTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANetworkAFTask.m; sourceTree = "<group>"; };
-		96E6056A1F127AFA008F98FD /* JANetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANetworkManager.h; sourceTree = "<group>"; };
-		96E6056B1F127AFA008F98FD /* JANetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANetworkManager.m; sourceTree = "<group>"; };
-		96E6056C1F127AFA008F98FD /* JANetworkMBHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANetworkMBHud.h; sourceTree = "<group>"; };
-		96E6056D1F127AFA008F98FD /* JANetworkMBHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANetworkMBHud.m; sourceTree = "<group>"; };
-		96E6056E1F127AFA008F98FD /* JANetworkProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANetworkProtocol.h; sourceTree = "<group>"; };
-		96E605791F1440ED008F98FD /* MSMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMenuView.h; sourceTree = "<group>"; };
-		96E6057A1F1440ED008F98FD /* MSMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMenuView.m; sourceTree = "<group>"; };
-		96E6057C1F14431F008F98FD /* MSTopMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSTopMenuView.h; sourceTree = "<group>"; };
-		96E6057D1F14431F008F98FD /* MSTopMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSTopMenuView.m; sourceTree = "<group>"; };
-		96F2A2431EFD67E800C42B63 /* JAReaderConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAReaderConfig.h; sourceTree = "<group>"; };
-		96F2A2441EFD67E800C42B63 /* JAReaderConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAReaderConfig.m; sourceTree = "<group>"; };
-		96F2A2451EFD67E800C42B63 /* JAReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAReaderView.h; sourceTree = "<group>"; };
-		96F2A2461EFD67E800C42B63 /* JAReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAReaderView.m; sourceTree = "<group>"; };
-		96F2A2471EFD67E800C42B63 /* JAReaderPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAReaderPageViewController.h; sourceTree = "<group>"; };
-		96F2A2481EFD67E800C42B63 /* JAReaderPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAReaderPageViewController.m; sourceTree = "<group>"; };
-		96F2A2491EFD67E800C42B63 /* JAReaderParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAReaderParser.h; sourceTree = "<group>"; };
-		96F2A24A1EFD67E800C42B63 /* JAReaderParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAReaderParser.m; sourceTree = "<group>"; };
-		96F2A24B1EFD67E800C42B63 /* JAReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAReaderViewController.h; sourceTree = "<group>"; };
-		96F2A24C1EFD67E800C42B63 /* JAReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAReaderViewController.m; sourceTree = "<group>"; };
+		96C72FCB1F3C11A400C69108 /* BackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackViewController.h; sourceTree = "<group>"; };
+		96C72FCC1F3C11A400C69108 /* BackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackViewController.m; sourceTree = "<group>"; };
+		96C72FCD1F3C11A400C69108 /* JABatteryStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JABatteryStatusView.h; sourceTree = "<group>"; };
+		96C72FCE1F3C11A400C69108 /* JABatteryStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JABatteryStatusView.m; sourceTree = "<group>"; };
+		96C72FCF1F3C11A400C69108 /* JABottomMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JABottomMenuView.h; sourceTree = "<group>"; };
+		96C72FD01F3C11A400C69108 /* JABottomMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JABottomMenuView.m; sourceTree = "<group>"; };
+		96C72FD11F3C11A400C69108 /* JABrightnessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JABrightnessView.h; sourceTree = "<group>"; };
+		96C72FD21F3C11A400C69108 /* JABrightnessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JABrightnessView.m; sourceTree = "<group>"; };
+		96C72FD31F3C11A400C69108 /* JACatalogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JACatalogViewController.h; sourceTree = "<group>"; };
+		96C72FD41F3C11A400C69108 /* JACatalogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JACatalogViewController.m; sourceTree = "<group>"; };
+		96C72FD51F3C11A400C69108 /* JAFontView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAFontView.h; sourceTree = "<group>"; };
+		96C72FD61F3C11A400C69108 /* JAFontView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAFontView.m; sourceTree = "<group>"; };
+		96C72FD71F3C11A400C69108 /* JAMagnifierView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAMagnifierView.h; sourceTree = "<group>"; };
+		96C72FD81F3C11A400C69108 /* JAMagnifierView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAMagnifierView.m; sourceTree = "<group>"; };
+		96C72FD91F3C11A400C69108 /* JAMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAMenuView.h; sourceTree = "<group>"; };
+		96C72FDA1F3C11A400C69108 /* JAMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAMenuView.m; sourceTree = "<group>"; };
+		96C72FDB1F3C11A400C69108 /* JAReaderConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAReaderConfig.h; sourceTree = "<group>"; };
+		96C72FDC1F3C11A400C69108 /* JAReaderConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAReaderConfig.m; sourceTree = "<group>"; };
+		96C72FDD1F3C11A400C69108 /* JAReaderPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAReaderPageViewController.h; sourceTree = "<group>"; };
+		96C72FDE1F3C11A400C69108 /* JAReaderPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAReaderPageViewController.m; sourceTree = "<group>"; };
+		96C72FDF1F3C11A400C69108 /* JAReaderParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAReaderParser.h; sourceTree = "<group>"; };
+		96C72FE01F3C11A400C69108 /* JAReaderParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAReaderParser.m; sourceTree = "<group>"; };
+		96C72FE11F3C11A400C69108 /* JAReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAReaderView.h; sourceTree = "<group>"; };
+		96C72FE21F3C11A400C69108 /* JAReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAReaderView.m; sourceTree = "<group>"; };
+		96C72FE31F3C11A400C69108 /* JAReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAReaderViewController.h; sourceTree = "<group>"; };
+		96C72FE41F3C11A400C69108 /* JAReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAReaderViewController.m; sourceTree = "<group>"; };
+		96C72FE51F3C11A400C69108 /* JASlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASlider.h; sourceTree = "<group>"; };
+		96C72FE61F3C11A400C69108 /* JASlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASlider.m; sourceTree = "<group>"; };
+		96C72FE71F3C11A400C69108 /* JAToastButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAToastButton.h; sourceTree = "<group>"; };
+		96C72FE81F3C11A400C69108 /* JAToastButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAToastButton.m; sourceTree = "<group>"; };
+		96C72FE91F3C11A400C69108 /* JATopMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JATopMenuView.h; sourceTree = "<group>"; };
+		96C72FEA1F3C11A400C69108 /* JATopMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JATopMenuView.m; sourceTree = "<group>"; };
+		96C72FEB1F3C11A400C69108 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		96C72FEC1F3C11A400C69108 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		96C72FFE1F3C11DA00C69108 /* MSHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSHTTPSessionManager.h; sourceTree = "<group>"; };
+		96C72FFF1F3C11DA00C69108 /* MSHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSHTTPSessionManager.m; sourceTree = "<group>"; };
+		96C730011F3C11E800C69108 /* JAHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAHTTPSessionManager.h; sourceTree = "<group>"; };
+		96C730021F3C11E800C69108 /* JAHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAHTTPSessionManager.m; sourceTree = "<group>"; };
 		96F425871EF2CC00005610C3 /* JAReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JAReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96F4258B1EF2CC00005610C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		96F4258D1EF2CC00005610C3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -206,20 +232,40 @@
 		96816A841EF423C200E1F38D /* Reader */ = {
 			isa = PBXGroup;
 			children = (
-				96F2A2471EFD67E800C42B63 /* JAReaderPageViewController.h */,
-				96F2A2481EFD67E800C42B63 /* JAReaderPageViewController.m */,
-				96F2A24B1EFD67E800C42B63 /* JAReaderViewController.h */,
-				96F2A24C1EFD67E800C42B63 /* JAReaderViewController.m */,
-				96F2A2431EFD67E800C42B63 /* JAReaderConfig.h */,
-				96F2A2441EFD67E800C42B63 /* JAReaderConfig.m */,
-				96F2A2451EFD67E800C42B63 /* JAReaderView.h */,
-				96F2A2461EFD67E800C42B63 /* JAReaderView.m */,
-				96F2A2491EFD67E800C42B63 /* JAReaderParser.h */,
-				96F2A24A1EFD67E800C42B63 /* JAReaderParser.m */,
-				96E605791F1440ED008F98FD /* MSMenuView.h */,
-				96E6057A1F1440ED008F98FD /* MSMenuView.m */,
-				96E6057C1F14431F008F98FD /* MSTopMenuView.h */,
-				96E6057D1F14431F008F98FD /* MSTopMenuView.m */,
+				96C72FCB1F3C11A400C69108 /* BackViewController.h */,
+				96C72FCC1F3C11A400C69108 /* BackViewController.m */,
+				96C72FCD1F3C11A400C69108 /* JABatteryStatusView.h */,
+				96C72FCE1F3C11A400C69108 /* JABatteryStatusView.m */,
+				96C72FCF1F3C11A400C69108 /* JABottomMenuView.h */,
+				96C72FD01F3C11A400C69108 /* JABottomMenuView.m */,
+				96C72FD11F3C11A400C69108 /* JABrightnessView.h */,
+				96C72FD21F3C11A400C69108 /* JABrightnessView.m */,
+				96C72FD31F3C11A400C69108 /* JACatalogViewController.h */,
+				96C72FD41F3C11A400C69108 /* JACatalogViewController.m */,
+				96C72FD51F3C11A400C69108 /* JAFontView.h */,
+				96C72FD61F3C11A400C69108 /* JAFontView.m */,
+				96C72FD71F3C11A400C69108 /* JAMagnifierView.h */,
+				96C72FD81F3C11A400C69108 /* JAMagnifierView.m */,
+				96C72FD91F3C11A400C69108 /* JAMenuView.h */,
+				96C72FDA1F3C11A400C69108 /* JAMenuView.m */,
+				96C72FDB1F3C11A400C69108 /* JAReaderConfig.h */,
+				96C72FDC1F3C11A400C69108 /* JAReaderConfig.m */,
+				96C72FDD1F3C11A400C69108 /* JAReaderPageViewController.h */,
+				96C72FDE1F3C11A400C69108 /* JAReaderPageViewController.m */,
+				96C72FDF1F3C11A400C69108 /* JAReaderParser.h */,
+				96C72FE01F3C11A400C69108 /* JAReaderParser.m */,
+				96C72FE11F3C11A400C69108 /* JAReaderView.h */,
+				96C72FE21F3C11A400C69108 /* JAReaderView.m */,
+				96C72FE31F3C11A400C69108 /* JAReaderViewController.h */,
+				96C72FE41F3C11A400C69108 /* JAReaderViewController.m */,
+				96C72FE51F3C11A400C69108 /* JASlider.h */,
+				96C72FE61F3C11A400C69108 /* JASlider.m */,
+				96C72FE71F3C11A400C69108 /* JAToastButton.h */,
+				96C72FE81F3C11A400C69108 /* JAToastButton.m */,
+				96C72FE91F3C11A400C69108 /* JATopMenuView.h */,
+				96C72FEA1F3C11A400C69108 /* JATopMenuView.m */,
+				96C72FEB1F3C11A400C69108 /* UIImage+ImageEffects.h */,
+				96C72FEC1F3C11A400C69108 /* UIImage+ImageEffects.m */,
 				9677BA5F1F2607D800AB48D4 /* Models */,
 			);
 			path = Reader;
@@ -276,13 +322,10 @@
 		96C380411F03289700AB0820 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				96E605681F127AFA008F98FD /* JANetworkAFTask.h */,
-				96E605691F127AFA008F98FD /* JANetworkAFTask.m */,
-				96E6056A1F127AFA008F98FD /* JANetworkManager.h */,
-				96E6056B1F127AFA008F98FD /* JANetworkManager.m */,
-				96E6056C1F127AFA008F98FD /* JANetworkMBHud.h */,
-				96E6056D1F127AFA008F98FD /* JANetworkMBHud.m */,
-				96E6056E1F127AFA008F98FD /* JANetworkProtocol.h */,
+				96C72FFE1F3C11DA00C69108 /* MSHTTPSessionManager.h */,
+				96C72FFF1F3C11DA00C69108 /* MSHTTPSessionManager.m */,
+				96C730011F3C11E800C69108 /* JAHTTPSessionManager.h */,
+				96C730021F3C11E800C69108 /* JAHTTPSessionManager.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -476,49 +519,58 @@
 			buildActionMask = 2147483647;
 			files = (
 				96C3803E1F0325AD00AB0820 /* UIScreen+JACoder.m in Sources */,
-				96F2A2511EFD67E800C42B63 /* JAReaderViewController.m in Sources */,
-				96F2A2501EFD67E800C42B63 /* JAReaderParser.m in Sources */,
+				96C72FFA1F3C11A400C69108 /* JASlider.m in Sources */,
 				96C380391F0325AD00AB0820 /* UIColor+JACoder.m in Sources */,
-				96E6057E1F14431F008F98FD /* MSTopMenuView.m in Sources */,
+				96C72FEE1F3C11A400C69108 /* JABatteryStatusView.m in Sources */,
+				96C72FF61F3C11A400C69108 /* JAReaderPageViewController.m in Sources */,
 				9677BA6E1F2607D800AB48D4 /* MSCharterModel.m in Sources */,
 				9677BA701F2607D900AB48D4 /* MSRecordModel.m in Sources */,
 				96C380321F0325AD00AB0820 /* NSFileManager+JACoder.m in Sources */,
+				96C72FFB1F3C11A400C69108 /* JAToastButton.m in Sources */,
 				96C380351F0325AD00AB0820 /* NSString+JACoder.m in Sources */,
 				96C380401F0325AD00AB0820 /* UIView+JACoder.m in Sources */,
 				96C380381F0325AD00AB0820 /* UICollectionView+JACoder.m in Sources */,
 				962D450D1F2046EF00A80F1A /* JARelateModel.m in Sources */,
+				96C72FF21F3C11A400C69108 /* JAFontView.m in Sources */,
+				96C72FED1F3C11A400C69108 /* BackViewController.m in Sources */,
 				9677BA741F26085C00AB48D4 /* JACellModel.m in Sources */,
 				96F425921EF2CC00005610C3 /* ViewController.m in Sources */,
+				96C72FEF1F3C11A400C69108 /* JABottomMenuView.m in Sources */,
 				96F4258F1EF2CC00005610C3 /* AppDelegate.m in Sources */,
 				96C3803D1F0325AD00AB0820 /* UINavigationController+JACoder.m in Sources */,
+				96C72FF91F3C11A400C69108 /* JAReaderViewController.m in Sources */,
+				96C72FF01F3C11A400C69108 /* JABrightnessView.m in Sources */,
+				96C72FF41F3C11A400C69108 /* JAMenuView.m in Sources */,
 				96F4258C1EF2CC00005610C3 /* main.m in Sources */,
-				96E605701F127AFA008F98FD /* JANetworkManager.m in Sources */,
+				96C72FF71F3C11A400C69108 /* JAReaderParser.m in Sources */,
 				96C3802D1F0325AD00AB0820 /* NSArray+JACoder.m in Sources */,
 				9677BA6C1F2607D800AB48D4 /* JAModel.m in Sources */,
 				96C3802E1F0325AD00AB0820 /* NSBundle+JACoder.m in Sources */,
 				96C380361F0325AD00AB0820 /* NSURL+JACoder.m in Sources */,
-				96E605711F127AFA008F98FD /* JANetworkMBHud.m in Sources */,
+				96C72FF51F3C11A400C69108 /* JAReaderConfig.m in Sources */,
+				96C72FFD1F3C11A400C69108 /* UIImage+ImageEffects.m in Sources */,
 				962D450B1F2046EF00A80F1A /* JADBManager.m in Sources */,
 				96C380331F0325AD00AB0820 /* NSNumber+JACoder.m in Sources */,
-				96F2A24D1EFD67E800C42B63 /* JAReaderConfig.m in Sources */,
+				96C730031F3C11E800C69108 /* JAHTTPSessionManager.m in Sources */,
 				96C3802F1F0325AD00AB0820 /* NSData+JACoder.m in Sources */,
 				9677BA6D1F2607D800AB48D4 /* MSBookModel.m in Sources */,
 				96C380551F03294100AB0820 /* MSNetworkManager.m in Sources */,
 				96C3803F1F0325AD00AB0820 /* UITableView+JACoder.m in Sources */,
 				962D45101F20476900A80F1A /* NSObject+JACoder.m in Sources */,
+				96C72FF81F3C11A400C69108 /* JAReaderView.m in Sources */,
 				96C3803B1F0325AD00AB0820 /* UIImage+JACoder.m in Sources */,
 				96C3803A1F0325AD00AB0820 /* UIDevice+JACoder.m in Sources */,
+				96C72FFC1F3C11A400C69108 /* JATopMenuView.m in Sources */,
+				96C72FF11F3C11A400C69108 /* JACatalogViewController.m in Sources */,
 				9677BA711F2607D900AB48D4 /* MSUserModel.m in Sources */,
 				962D450C1F2046EF00A80F1A /* JADBTable.m in Sources */,
 				96C3803C1F0325AD00AB0820 /* UINavigationBar+JACoder.m in Sources */,
 				96C380301F0325AD00AB0820 /* NSDate+JACoder.m in Sources */,
+				96C730001F3C11DA00C69108 /* MSHTTPSessionManager.m in Sources */,
 				96C380371F0325AD00AB0820 /* UIButton+JACoder.m in Sources */,
+				96C72FF31F3C11A400C69108 /* JAMagnifierView.m in Sources */,
 				96C380311F0325AD00AB0820 /* NSDictionary+JACoder.m in Sources */,
-				96E6057B1F1440ED008F98FD /* MSMenuView.m in Sources */,
 				9677BA6F1F2607D900AB48D4 /* MSCommentModel.m in Sources */,
-				96F2A24E1EFD67E800C42B63 /* JAReaderView.m in Sources */,
-				96F2A24F1EFD67E800C42B63 /* JAReaderPageViewController.m in Sources */,
-				96E6056F1F127AFA008F98FD /* JANetworkAFTask.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

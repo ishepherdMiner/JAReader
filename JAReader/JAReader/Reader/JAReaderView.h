@@ -7,13 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <YYText.h>
+#import <CoreText/CoreText.h>
+
+@protocol JAReadViewControllerDelegate;
 
 /// 单页
 @interface JAReaderView : UIView
 
 @property (nonatomic,assign) CTFrameRef frameRef;
-@property (nonatomic,strong) NSString *content;
+
+/// 页面内容
+@property (nonatomic,copy) NSString *content;
+
+@property (nonatomic,strong) id<JAReadViewControllerDelegate>delegate;
 
 - (void)cancelSelected;
 

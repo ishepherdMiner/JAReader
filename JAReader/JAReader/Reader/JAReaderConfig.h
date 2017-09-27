@@ -12,23 +12,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSUInteger,JAReaderThemeType){
     JAReaderThemeTypeNormal,
-    JAReaderThemeTypeNight,
-    JAReaderThemeTypeCustom,
+    JAReaderThemeTypeNight,    
 };
 
-/// 阅读器配置
+/// 配置
 @interface JAReaderConfig : NSObject
 
 @property (nonatomic) CGFloat fontSize;
 @property (nonatomic) CGFloat lineSpace;
 @property (nonatomic,strong) UIColor *fontColor;
-@property (nonatomic,strong) UIColor *themeColor;
-
-/// 主题
+@property (nonatomic,strong) UIColor *bgColor;
 @property (nonatomic,assign) JAReaderThemeType theme;
+/// 亮度
+@property (nonatomic,assign) CGFloat brightness;
 
 
-+ (instancetype)sharedReaderConfig;
++ (instancetype)defaultConfig;
+- (NSDictionary *)attributes;
 
 @end
 
